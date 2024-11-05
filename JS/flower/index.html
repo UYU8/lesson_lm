@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //面向对象 00 
+        //js 对象字面量 创建一个对象
+        const NL = {
+    name: "奶龙",
+    age: 18,
+    hometown: "南昌",
+    hobbies: ['学习', '跳舞'],
+    isSingle: true,
+    sendFlower(target) {
+        target.receiveFlower(NL);
+    }
+};
+        // 申明了常量对象 对象字面量 从字面意义上就可以了解对象
+        const LYF = {
+    name: '刘亦菲',
+    age: 21,
+    hometown: '上海',
+    sex: 'female',
+    xq: 50,
+    receiveFlower(sender) {
+        if (LYF.xq < 80) {
+            console.log('gun!');
+        } else {
+            console.log('刘亦菲收到了' + sender.name + '送的花');
+        }
+    }
+};
+
+const XM = {
+    name: '小美',
+    hometown: '南昌',
+    receiveFlower(sender) {
+        setTimeout(() => {
+            LYF.xq = 99; // 假设经过一段时间后，刘亦菲的心情变好了
+            LYF.receiveFlower(sender); // 再次尝试送花
+        }, 2000); // 等待两秒
+    }
+};
+    </script>
+</body>
+</html>
