@@ -1,0 +1,39 @@
+html{
+    height: 100%;
+    font-size: 10px; /*字体大小*/
+    background: url('C:/Users/喻文凯/Pictures/ok.jpg') bottom center;
+    background-size: cover;
+}
+body{
+    display: flex;
+}
+
+.keys{
+    display: flex;
+    flex:1;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.key{
+    border: 4px solid white;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 15px;
+    padding: 10px 5px;
+    width: 100px;
+    background: rgba(0,0,0,0.4);
+    box-shadow: 0 0 5px black;
+    text-align: center;
+    color: violet;
+}
+.key>div{
+    font-size: 40px;
+}
+.key .sound{
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffc600;
+}
