@@ -21,8 +21,10 @@
     brain.js 有哪些能力？
     - 投喂数据训练一下，
       data json数组的形式 最简单
+
     - 实例化 一个神经网路对象 
       brain.recurrent.LSTM()
+      
     - train 方法调用一下 简单 
     - run nlp模型的推理能力
     - 结果分类 frontend | backend   

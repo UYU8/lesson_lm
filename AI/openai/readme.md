@@ -10,5 +10,5 @@
 -npm init -y 项目初始化一下 
  package.json 项目描述文件
 -node main.mjs
--npm i openai  安装openai 包
+-npm i openai  安装openai 包 pnpm open ai
 -npm node 包管理器
