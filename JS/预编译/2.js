@@ -1,6 +1,6 @@
 // GO:{
-// global:undefined,-> 100 
-// fn:fn(){},
+//     global:undefined,-> 100 
+//     fn:fn(){},
 // }
 
 var global = 100;

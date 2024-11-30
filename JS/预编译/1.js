@@ -16,6 +16,5 @@ fn(1);
 // AO:{
 //     a:undefined,-> 1,-> funcation a(){},-> 123
 //     b:undefined,-> funcation b(){},
-//     d:undefined,
-//     d:funcation d(){},-> 123
+//     d:undefined,-> funcation d(){},-> 123
 // }

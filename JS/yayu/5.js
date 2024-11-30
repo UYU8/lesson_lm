@@ -7,12 +7,13 @@ const owen = {
 }
 
 function Person(name,age){
-    console.log(this);
+    // console.log(this);
     this.name = name;
     this.age = age;
 }
 Person.prototype = owen;
 
 const kai = new Person('凯',18);
-console.log(kai.name,kai.age);
+// console.log(kai.name,kai.age);
 kai.playBasketball();
+console.log(kai.__proto__ === owen);
