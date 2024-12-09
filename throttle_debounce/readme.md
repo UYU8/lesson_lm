@@ -17,7 +17,7 @@
       - Method（动作 GET | PATHC 修改| DELETE 删除| POST 新增） + url （资源）请求行
       - 请求头 Cookie Content-Type:text/json ...
       - 请求体
-- json-server
+- json-server 完全实现restful api接口的数据服务器
   - 提供 http 服务
   - 让dn.json 作为数据资源向外提供访问 支持CRUD 操作
 
@@ -33,3 +33,17 @@
       DELETE http://localhost:3001/posts/2
 
 - json-server 是一个支持restful api 设计的数据服务器
+
+- 全栈防抖
+  - 前后端分离 解耦 前后端不直接通信 中间通过http协议通信 前后端都可以独立开发 互不影响
+  - 前端 live-server 5500
+    通过 fetch 方法 对 后端url 发送请求
+  - 后端 json-server 3001
+    后端为前端提供url的接口服务 json-server 中实现了 restful api 接口
+  - api 接口
+
+- filter、map
+  - 都是Array.prototype上的方法,所有数组的都有
+  - filter 数组过滤，回调函数返回值是否为true 则保留 否则过滤掉
+  - mpa 数组映射，回调函数返回值作为新数组的元素 原有数组不能满足需求
+  - forEach 迭代每一项 不需要返回值 

@@ -3,7 +3,7 @@
 - 何为css？
   ```css
   /*css rules*/
-  /*css规则*/
+  /*这是一个css规则*/
   h1{ /*选择器*/
     color:red; /*声明*/
     text-align:center; /*声明*/
