@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <label for="unDebounceInput">用户搜索</label>
+    <input 
+      type="text"
+      id="unDebounceInput"
+      placeholder="请输入要搜索的用户名字"
+    >
+  </div>
+  <ul id="users"></ul>
+  <script>
+  const oUL = document.querySelector('#users');
+  // 通往后端接口
+  const oInput = document.getElementById('unDebounceInput');
+
+  const debounceNameSearch = debounce(handleNameSearch, 500)
+  // 当作为事件的处理函数来用时，this 指向事件的目标元素
+  oInput.addEventListener('keyup', debounceNameSearch)
+
+  function handleNameSearch() {
+    let value = oInput.value.trim();
+    if(value === '') {
+      oUL.innerHTML = '';
+      return;
+    }
+    fetch('http://localhost:3001/users')
+      .then(res => res.json())
+      .then(users => {
+        // console.log(users);
+        const filterUsers = users.filter(
+          // filter 方法根据这个布尔值决定是否将当前元素包含在新数组中
+          user => user.name.includes(value)
+        )
+        // Array 在es6 中新增的方法 
+        oUL.innerHTML = filterUsers.map( user => 
+           `
+            <li>
+              ${user.name}
+            </li>
+           `
+        ).join("");// 将数组中的所有元素连接成一个字符串 并指定一个字符串作为分隔符
+          
+        // for(let user of filterUsers){
+        //   const oLI = document.createElement('li');
+        //   oLI.innerText = user.name;
+        //   oUL.appendChild(oLI);
+        // }
+      })
+  }
+  // 防抖
+  // 高阶函数
+  function debounce(fn,delay){
+    let id = null;
+    return function(){
+        // console.log('')
+        // 限流？
+        clearTimeout(id);
+        id = setTimeout(()=>{
+          fn()
+        },delay)
+    }
+  }
+  </script>
+</body>
+</html>
