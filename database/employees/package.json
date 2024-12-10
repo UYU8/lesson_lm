@@ -1,0 +1,15 @@
+{
+  "name": "employees",
+  "version": "1.0.0",
+  "description": "- 建一个表\r - 姓名、工资、部门",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sqlite3": "^5.1.7"
+  }
+}
