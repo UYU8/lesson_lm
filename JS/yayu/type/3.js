@@ -1,7 +1,7 @@
 console.log(1 / + 0) // Infinity 正无穷大
 console.log(1 / - 0) // -Infinity 负无穷大
-console.log(Object.is(5, 5)); // 比较两者是否相等 
-console.log(Object.is(+0, -0)); 
+console.log(Object.is(5, 5)); // 比较两者是否相等 true
+console.log(Object.is(+0, -0)); // false
 // 隐式转换 
 // NaN Not a number 
 console.log(2 * "a", 2 + "a"); // NaN 
