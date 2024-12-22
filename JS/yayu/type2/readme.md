@@ -6,7 +6,7 @@
 - 包装类
    "abc".length
    "1.23".toFixed(1)
-   new String("abc") new Number("1.23") 
+   其实背后是 -> new String("abc") new Number("1.23") 
    一切面向对象，自动的帮我们包装一下简单数据类型
 
 - 什么是包装对象？
