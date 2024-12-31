@@ -21,6 +21,7 @@
         let count = 2; // 数据
         // 拦截器 修改值之前 能不能拦截一下值（抽象说法)
         // 属性定义 重新定义一下属性 对obj对象 中的value属性
+        // 当访问obj.value时会触发get 修改值时会触发set 
         Object.defineProperty(obj,'value',{
             get:function(){
                 console.log('读了value 属性')
