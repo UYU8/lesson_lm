@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            position: relative; /* 相对于自身定位 */
+            /* top: 100px;
+            left: 100px;
+            background-color: lightblue; */
+        }
+        .box1{
+            z-index: 2;
+        }
+        .box2{
+            z-index: 1;
+        }
+        p{
+            position: absolute;
+            font-size: 20px;
+            width: 100px;
+            height: 100px;
+        }
+        .a{
+            background-color: lightblue;
+            z-index: 100;
+        }
+        .b{
+            background-color: lightgreen;
+            top: 20px;
+            left: 20px;
+            z-index: 200;
+        }
+        .c{
+            background-color: lightsalmon;
+            top: -20px;
+            left: 40px;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <p class="a">a</p>
+        <p class="b">b</p>
+    </div>
+    <div class="box2">
+        <p class="c">c</p>
+    </div>
+</body>
+</html>

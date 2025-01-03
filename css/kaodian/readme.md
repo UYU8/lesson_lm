@@ -50,3 +50,37 @@
   - overflow:hidden|auto...; overflow属性不为visible 用水杯盛开水 
 
 - IFC Inline Formatting Context 行内格式上下文
+
+- 页面是平面的
+  BFC | 文档流 | 布局 | 盒模型 | 选择器 | 继承 | 层叠下文 ... 为我们的渲染引擎像素计算（rgb 像素点）而服务的 
+  - z-index 越大越在上面 洋葱 
+  一层一层计算 叠加起来 （图层的合成）
+
+  - 层叠上下文 是html 的三维概念 ，发生堆叠 ，z-index 受父元素的影响 ，如果 父元素z-index 值小 ，子元素 z-index 再大也没有效果。
+  - html 的DOM树 浏览器解析程序的数据结构（树）
+  - css css0M 树 
+  - DOM 树 + css 树 = 渲染树 render tree -> 布局（float position flex...） -> 绘制（z-index） -> 合成（图层） -> 渲染引擎画出来。
+  - z-index 太多了，性能不好 
+  - 父图层 管着 
+
+- css有三种写法 
+  - 行内样式 
+    影响到样式的优先级最高 ！important 不要多用，不好维护
+    :style = (width: width + 'px') 动态样式用 
+  - 内嵌样式
+    少用，link 不方便复用和管理 
+    影响页面加载速度
+  - 外联样式
+    好维护
+    好复用
+    模块化 
+    并发请求、DOM 可以提前解析和 css 结合，渲染，页面尽早出来 （快）
+
+  - stylus
+    CSS 预编译器
+    浏览器还是只认css ，先写styl ，再通过命令编译成css文件
+    npm -i -g stylus 全局安装了 stylus
+    stylus -w 2.style -0 2.css 
+    - 快 不用写 {} 不用写 : ; 
+    - tab 缩进一下 选择器和规则的归属 
+    - stylus 让css 更强大 
