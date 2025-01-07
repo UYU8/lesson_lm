@@ -7,8 +7,10 @@
 
 <script setup>
 
-</script>
 import Parent from './components/Parent.vue'
+
+</script>
+
 <style scoped>
 
 </style>
