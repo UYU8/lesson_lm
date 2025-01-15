@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文档碎片</title>
+</head>
+<body>
+<div id="container"></div>
+<script>
+const container = document.getElementById('container');
+const fragment = document.createDocumentFragment(); // 文档碎片，碎片节点，容器
+
+for (let i = 0; i < 100; i++) { // 100 ?
+  const div = document.createElement('div'); // 还在内存中
+  div.textContent = `Item ${i + 1}`;
+//   container.appendChild(div); 一旦挂载就要跑一趟更新
+  fragment.appendChild(div);
+}
+container.appendChild(fragment); // v8 -> 渲染只做了一次
+</script>
+</body>
+</html>
