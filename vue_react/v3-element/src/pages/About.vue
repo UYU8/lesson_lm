@@ -1,11 +1,11 @@
 <template>
-    <div>
-      About
-    </div>
+  <div>
+    About
+  </div>
 </template>
 
 <script setup>
-console.log('about')
+console.log('about');
 </script>
 
 <style scoped>
