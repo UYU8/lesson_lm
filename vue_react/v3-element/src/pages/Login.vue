@@ -53,7 +53,13 @@ const onSubmit = async () => {
     if (valid) {
       console.log('验证成功');
       const res = await login(form);
-      console.log(res);
+      // console.log(res);
+      if(res.data.code == 200){
+        console.log(res.data.data);
+      }
+      else{
+        console.log(res.data.message);
+      }
     } else {
       console.log('验证失败');
     }
