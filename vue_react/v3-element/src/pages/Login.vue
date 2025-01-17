@@ -23,7 +23,9 @@
 <script setup>
 import { reactive, ref } from 'vue';
 import { login } from '../api/';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const formRef = ref(null);
 // 表单数据
 const form = reactive({
@@ -55,7 +57,10 @@ const onSubmit = async () => {
       const res = await login(form);
       // console.log(res);
       if(res.data.code == 200){
-        console.log(res.data.data);
+        let token = res.data.data;
+        // console.log(res.data.data);
+        localStorage.setItem('token', token);
+        router.push('/');
       }
       else{
         console.log(res.data.message);

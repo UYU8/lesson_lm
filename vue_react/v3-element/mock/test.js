@@ -1,10 +1,35 @@
 import pkg from 'jsonwebtoken'
-const { sign } = pkg;
+const { sign,
+  verify
+ } = pkg;
 
 // 密钥
 const secret = 'g10bqw2345';
 
 export default [
+  {
+    url:'/api/getUserInfo',
+    method: 'get',
+    response:req => {
+      // 拿到token
+      // jwt
+      const token = (req.headers['authorization'].split(' ')[1],'///////');
+      try{
+        let decoded = verify(token, secret); // 后端知道你是谁了
+        // console.log(decoded);
+        return{
+          code: 200,
+          data: decoded
+        }
+      }
+      catch(err){
+
+      }
+      return {
+        user:'admin'
+      }
+    }
+  },
   {
     url: '/api/login',
     method: 'post',
@@ -23,7 +48,6 @@ export default [
       const token = sign({user: body.name}, secret, {
         expiresIn: 60 * 60 * 24 * 7
       })
-
 
       return {
         code: 200,

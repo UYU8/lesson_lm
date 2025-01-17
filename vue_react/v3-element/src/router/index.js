@@ -46,6 +46,11 @@ const router = createRouter(
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title || "掘金"
   if (to.meta.requireLogin) {
+    // more 如果能拿到token就放行
+    if(localStorage.getItem('token')) {
+      next()
+      return
+    }
     next('/login')
     return
   }

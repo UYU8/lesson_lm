@@ -81,3 +81,33 @@
       json ? web + 令牌
     - sign 签发
     - token -> verify 方法 返回用户对象 name avatar....
+
+- 基于mock 前后端通信的工作流程
+  - vite js 启用 mockServer 插件
+  - mock 目录下的文件 申明模拟后端接口 
+  - api 目录下 编写了接口的封装 axios
+  - 前端组件onMounted 生命周期 发送接口请求
+
+- 需要验证用户身份的接口 
+  - token 在localStorage 中
+  - ？token=${token} 每个请求都得带上 烦 
+  - 请求头 Authorization : Bearer ${token}
+  - req 请求行 请求头 请求体 （post有 get没有）专属头 Authorization 
+
+- 怎么做登录的？
+  - cookie + seesion 传统方式 安全问题
+  - jwt 更适合现在 用json对象 签成token 又变回json对象
+    - 登录的本质是身份认证
+    - 得到一个身份 用户？
+    - 表单提交登录请求，username，password
+    - jwt sign 方法 签发一个 token 给登录请求 用户身份 secret 加密 生成一个token 
+    - token 放到localStorage 中
+    - 每个请求都带上token，axios 的 拦截器来负责 heads中 设置 Authorization 字段 
+    - 后端 req 解出 设置 Authorization 字段 token
+    - 调用verify 方法 返回用户对象
+    - 后端知道身份
+    - 前端也可以得到用户对象
+
+    JWT（JSON Web Token）在登录时的核心概念是：一种紧凑且自包含的安全令牌格式，用于在客户端和服务器之间传递用户身份验证和授权信息，确保数据的完整性和安全性。
+
+具体来说，JWT 在用户登录成功后生成，包含用户的标识和其他必要信息，并通过签名防止篡改，客户端在后续请求中携带该令牌以证明其身份。
