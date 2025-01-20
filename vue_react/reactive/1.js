@@ -1,6 +1,8 @@
 // es6 代理对象
-const proxy = new Proxy({}, {
-    // 拦截行为 尝试访问对象时触发get 改变或设置时触发set 
+
+const target = {}
+const proxy = new Proxy(target, {
+    // 拦截行为 尝试访问对象属性时触发get 改变或设置时触发set 
     // obj即target对象 prop就是time属性 value就是35
     get: function(obj,prop){
         console.log('设置get 操作');
@@ -13,4 +15,6 @@ const proxy = new Proxy({}, {
 });
 
 proxy.time = 35;
+// console.log(proxy);
 console.log(proxy.time);
+console.log(target.time);

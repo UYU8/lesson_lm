@@ -30,13 +30,9 @@
             set:function(newValue){
                 value = newValue; // 原来的职责 数据改变了
                 document.getElementById('container').innerHTML = newValue;
+                console.log('修改了value 属性')
             }
         })
-        document.getElementById('button')
-          .addEventListener('click',function(){
-              obj.value++;
-          })
-
         Object.defineProperty(obj,'count',{
             get: function(){
                 console.log('读了count 属性');
@@ -47,6 +43,7 @@
                 document.getElementById('count').innerHTML = newValue;
             }
         })
+
         document.getElementById('button')
           .addEventListener('click',function(){
               obj.value++;
