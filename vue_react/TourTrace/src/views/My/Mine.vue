@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <router-view />
-  </div>
+    <div>
+      Mine
+    </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 
 </script>
 
