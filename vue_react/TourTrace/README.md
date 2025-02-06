@@ -31,3 +31,8 @@
       .ttf 为图标字体库
       .css 中 font-family: 'iconfont' 定义了图标字体库的名字 
   - 组件 + 状态管理(pinia) 
+  - @ 路径的别名 alias 代表 /src
+    在 vite.config.ts 中配置
+  - types 自定义类型 ts 中的关键词 用于声明自定义类型 
+  -  es6 module(模块) 高级语法 引入类型时加入type
+  - 泛型 类型约束 接受类型的传参 你将这个类型传到我<> 这里面 我就用这个约束ref

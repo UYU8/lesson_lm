@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import path from 'path'
 // vite中预先加载 UI 组件库的包
 import Components from 'unplugin-vue-components/vite'
 // 引入vant组件 编译阶段 
@@ -17,4 +18,10 @@ export default defineConfig({
       ]
     })
   ],
+  resolve: {
+    alias: {
+      // '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': path.resolve(__dirname, 'src')
+    }
+  }
 })

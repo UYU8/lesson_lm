@@ -16,3 +16,7 @@ npm install -D tailwindcss postcss autoprefixer
 项目的初始化
 - tailwind.config.js 配置文件
 content 配置项
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

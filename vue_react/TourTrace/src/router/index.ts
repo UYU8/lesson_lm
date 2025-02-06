@@ -4,7 +4,7 @@ import type { RouteRecordRaw } from 'vue-router'
 
 // js 弱类型 好学
 // 大型项目 弱类型为缺点 
-const rootRoutes = [
+const rootRoutes :RouteRecordRaw[] = [
   {
       path: 'home',
       name: 'Home',
@@ -64,7 +64,7 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((to, from, next)=>{
+router.beforeEach((to, _from, next)=>{
     // as 当成什么类型处理 断言
     document.title = to.meta.title as string;
     next()
