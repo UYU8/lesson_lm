@@ -101,3 +101,36 @@ react <-> koa <-> LLM
   - 封装 AI LLM 接口
 
 - react 去 axios 向 koa LLM 接口 发送请求
+
+- jsonp
+  js ajax/fetch cors
+  jsonp <scrript src=""></script>
+  callback({a:1})
+  callback
+
+  cors 后端方案？允许你跨域
+  同源策略会限制其读取响应内容以防信息泄露。而 CORS（跨源资源共享）机制允许服务器通过特定的 HTTP 响应头告知浏览器该请求是被允许的，从而解除这种限制。因此，虽然同源策略会限制 JavaScript 读取跨域请求的响应，但不会直接“block”请求本身；相反，它控制的是能否访问请求的结果。
+
+服务器端设置响应头，告诉浏览器允许跨域访问。
+ctx.set 上下文 响应头
+Access-control-Allow-Origin:
+Access-control-Allow-Methods:
+Access-control-Allow-Headers:
+
+- options 预检请求 method 之一 除了 get 以外的复杂请求时会
+  温柔
+  跨域请求，会先发送一个 options 请求，询问服务器是否允许跨域访问。
+  被允许，继续发送实际的请求 post
+
+- koa 服务，烤面筋
+
+  - 中间件函数 洋葱模型
+  - 有顺序
+  - 从上到下去执行
+
+- vue 和 react 区别
+  - vue v-model 双向绑定
+  - react 单向数据流 认为双向性能特别不好
+    单向 + 事件 onchange
+  - vue 支持事件修饰符 api 友好
+  - react 手写
