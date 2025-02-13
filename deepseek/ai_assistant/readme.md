@@ -46,6 +46,100 @@ Flask koa 后端框架
   - 路由 / 显示 index.html
 
 - 静态文件
+
   - js/css/img FE
   - 启动静态服务器
-  -
+
+- 状态码
+  1XX 请求中...
+  2XX 成功 201 Created
+  3XX 重定向
+  4XX 客户端错误 404 Not Found
+  5XX 服务器错误
+
+  响应头第一个数据包 浏览器或程序 就通过状态码知道怎么处理
+  程序逻辑的一部分
+
+- env
+
+## 界面
+
+- html 结构框架
+  - 写注释
+  - 图标字体库 font-awesome iconfont
+    - 性能优化
+    - 小图标都用图片，http 请求数的暴涨，网页同时并发请求数是有上限的
+    - 下载一个图标字体文件
+    - fas fa-comment-alt
+    - font-awesime 不提供选择，都是一样的
+- css 样式的组合 面向对象特性 多态 方便复用和维护
+  tailwindecss 原子类
+- textarea LLM 支持比较多的 tokens 出入长度 kimi deepseek
+- 语义化标签
+- css
+
+  - 弹性布局
+    - 居中
+    - align-items 纵轴
+    - justify-content 横轴
+    - flex-direction row|colum
+  - grid 布局
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap 24px
+  - 响应式布局
+    width max-width
+    @media screen and (max-width: 768px) {
+
+    }
+
+  - transition animation 过度
+    - width 旋转屏幕 宽度变化
+    - 多个属性分别设置，用逗号隔开
+  - 面向对象思想
+    - 封装 多态 继承
+    - button 样式组件 基础样式
+      UI 风格 antd
+    - 组合业务样式
+      primary secondary default -> tailwindcss 原子类
+    - calc
+      css 中用于动态布局设计中精确控制元素大小与位置
+      不能滥用 因为要计算 性能有一点点问题 涉及不必要的重绘重排
+    - flex:1
+      flex-grow: 1 其他子元素没有设置，主元素 ,其他元素占完后，剩下都归他来 grow；多个元素都设置 按比例划分
+      flex-shrink 收缩比例
+      flex-basis 设置基础大小
+
+- 代码风格
+
+  - 注释
+  - 封装
+    - 一个函数只做一件事
+    - 一个函数不超过 10 行
+  - es6+ 风格
+    promise + async/await
+
+- js
+  - 用户体验
+    - keydown enter
+    - event.preventDefault 阻止默认行为
+  - promise 的使用
+    await 后面的肯定是 promise 或返回 promise 实例的函数
+    then 链式调用
+    处理函数返回的仍然是 promise 链式调用
+    如果不是？ promise.resolve(包一下)
+  - BOM
+    - navigator.useAgent
+      操作系统 浏览器版本 内核
+    - navigator.clipboard
+
+## 业务
+
+- 界面业务
+  - grid 布局
+  - transition
+  - css 面向对象
+- scrollToTop 业务 滚动到顶部
+- 发消息业务
+- 流式输出
+- 剪切板功能
