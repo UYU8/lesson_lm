@@ -132,6 +132,13 @@ Flask koa 后端框架
     - navigator.useAgent
       操作系统 浏览器版本 内核
     - navigator.clipboard
+  - localStorage
+    - 本地存储
+    - 本地存储的大小 5M cookie kb 带上
+    - getItem 传 null 也是 null
+    - setItem
+  - array, string 方法强化一下
+    - slice 负数
 
 ## 业务
 
