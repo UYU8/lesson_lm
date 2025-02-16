@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // console.log('DOMContentLoaded')
   const backToTopButton = document.getElementById('back-to-top');
   const chatLogElement = document.getElementById('chat-log');
+  const conversationListElement = document.getElementById('conversation-list');
   const messageInput = document.getElementById('message');
   const loadingIndicator = document.querySelector('.loading-indicator');
   // scrollTop 
@@ -123,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
       return data.message
     })
     // 链式调用
-   
   }
 
   // 显示加载中
@@ -199,14 +199,72 @@ document.addEventListener('DOMContentLoaded', function() {
     chatLogElement.innerHTML = '';
   }
 
+  const loadConversationList = () => {
+    const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+    chatHistory.forEach((conversation, index) => {
+      const button = document.createElement('button');
+      button.setAttribute('data-index', index);
+      button.innerHTML = `${conversation.name} <span class="delete-btn" data-index="${index}">x</span>`;
+      // 性能不好
+      // button.onclick = function() {
+      //   console.log(this.innerHTML);
+      // }
+      conversationListElement.appendChild(button);
+    })
+  }
+
+  const loadConversation = (index) => {
+    const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+    const conversation = chatHistory[index].messages || [];
+    chatLogElement.innerHTML = '';
+    conversation.slice(-MESSAGE_LIMIT).forEach(({
+      role,
+      content
+    }) => appendMessage(role, content));
+    localStorage.setItem('chatLog', JSON.stringify(conversation)); 
+  }
+  // 删除聊天历史
+const deleteChatHistory = (index) => {
+  // 从 localStorage 中获取聊天历史记录
+  const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+  
+  // 检查索引是否有效
+  if (index >= 0 && index < chatHistory.length) {
+    // 删除指定索引的聊天历史记录
+    chatHistory.splice(index, 1);
+    
+    // 将更新后的聊天历史记录保存到 localStorage 中
+    localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+    
+    // 重新加载对话列表
+    const conversationListElement = document.getElementById('conversation-list');
+    conversationListElement.innerHTML = '';
+    loadConversationList();
+  }
+};
+  conversationListElement.addEventListener('click', function(event) {
+    console.log(event.target);
+    const index = event.target.getAttribute('data-index') || 0;
+    // remove history 删除历史 
+    if (event.target.nodeName === 'SPAN') {
+      // console.log('/////')
+      deleteChatHistory(index);
+      return;
+    }
+    // 加载历史
+    
+    loadConversation(index);
+  })
+
   const main = () => {
     loadChatLog();
+    loadConversationList();
   }
 
   main();
 
   window.startNewConversation = startNewConversation;
-  
+  window.saveCurrentConversation = saveCurrentConversation;
 })
 /* 所有的资源加载完了 */
 // window.addEventListener('load', function(event) {

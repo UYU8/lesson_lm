@@ -76,6 +76,8 @@ Flask koa 后端框架
   tailwindecss 原子类
 - textarea LLM 支持比较多的 tokens 出入长度 kimi deepseek
 - 语义化标签
+- 无障碍访问
+  label + for
 - css
 
   - 弹性布局
@@ -139,6 +141,23 @@ Flask koa 后端框架
     - setItem
   - array, string 方法强化一下
     - slice 负数
+  - event 事件机制
+    - onclick（内联 DOM 0） addEventListener(事件监听 DOM 2)
+    - 小红书 (JS 高级程序设计)
+    - 事件冒泡 | 事件捕获
+    - 事件委托
+      - 事件委托是利用事件冒泡原理来实现的 父元素上 性能好 监听一次
+      - event.target 事件目标元素 data-index
+  - 产品需求
+    - 产品经理提出产品需求
+    - 设计师 界面设计
+    - 前端 vue/react 完成需求
+      - 分析
+      - 技术点设计
+      - 代码实现
+      - debug
+      - 交付上线
+    - 后端 数据和 mvc 提供 api
 
 ## 业务
 
@@ -150,3 +169,5 @@ Flask koa 后端框架
 - 发消息业务
 - 流式输出
 - 剪切板功能
+- 聊天历史分组功能
+  - localStorage chatlog
