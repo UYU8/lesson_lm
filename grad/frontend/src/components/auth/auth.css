@@ -1,0 +1,304 @@
+/* 鲨鱼记账风格 - 登录/注册页 */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 顶部装饰区 */
+.auth-top {
+  height: 300px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 32px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* 背景圆形装饰 */
+.auth-top::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 480px;
+  height: 480px;
+  background: #FFE566;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* 小圆圈装饰 */
+.auth-top::after {
+  content: '';
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Logo 区 */
+.auth-logo {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.auth-logo-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.auth-logo-name {
+  font-size: 26px;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.auth-logo-tagline {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: -4px;
+}
+
+/* 底部白色表单卡片 */
+.auth-card {
+  flex: 1;
+  background: #FFFFFF;
+  border-radius: 28px 28px 0 0;
+  margin-top: -20px;
+  padding: 32px 24px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.05);
+}
+
+/* 拖拽条 */
+.auth-card-handle {
+  width: 40px;
+  height: 4px;
+  background: #E5E5EA;
+  border-radius: 2px;
+  margin: 0 auto 28px;
+}
+
+.auth-card-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1C1C1E;
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+
+.auth-card-subtitle {
+  font-size: 14px;
+  color: #6C6C70;
+  margin-bottom: 28px;
+}
+
+/* 输入框 */
+.auth-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.auth-input-item {
+  display: flex;
+  align-items: center;
+  background: #F5F5F7;
+  border-radius: 14px;
+  padding: 0 16px;
+  height: 54px;
+  gap: 12px;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.auth-input-item:focus-within {
+  background: #FFFBF0;
+  border-color: #FFE566;
+}
+
+.auth-input-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.auth-input-item input {
+  flex: 1;
+  font-size: 15px;
+  color: #1C1C1E;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.auth-input-item input::placeholder {
+  color: #AEAEB2;
+}
+
+/* 主按钮 */
+.auth-btn-primary {
+  width: 100%;
+  height: 54px;
+  background: #FFE566;
+  border: none;
+  border-radius: 16px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #1C1C1E;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(245, 197, 24, 0.4);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  letter-spacing: 0.5px;
+}
+
+.auth-btn-primary:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 8px rgba(245, 197, 24, 0.3);
+}
+
+.auth-btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 底部切换 */
+.auth-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.auth-switch-text {
+  color: #6C6C70;
+}
+
+.auth-switch-link {
+  color: #1C1C1E;
+  font-weight: 700;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+/* 错误提示 */
+.auth-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFF0EF;
+  border: 1px solid #FFD0CE;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: #FF3B30;
+  font-weight: 500;
+}
+
+/* 分割线 */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.auth-divider-line {
+  flex: 1;
+  height: 1px;
+  background: #E5E5EA;
+}
+
+.auth-divider-text {
+  font-size: 12px;
+  color: #AEAEB2;
+}
+
+/* ── 深色模式 ── */
+[data-theme="dark"] .auth-page,
+[data-theme="dark"] .auth-card {
+  background: #1C1C1E;
+}
+
+[data-theme="dark"] .auth-card-title {
+  color: #fff;
+}
+
+[data-theme="dark"] .auth-card-subtitle {
+  color: #8E8E93;
+}
+
+[data-theme="dark"] .auth-card-handle {
+  background: #3A3A3C;
+}
+
+[data-theme="dark"] .auth-input-item {
+  background: #2C2C2E;
+  border-color: transparent;
+}
+
+[data-theme="dark"] .auth-input-item:focus-within {
+  background: #1C1200;
+  border-color: #FFE566;
+}
+
+[data-theme="dark"] .auth-input-item input {
+  color: #fff;
+}
+
+[data-theme="dark"] .auth-switch-text {
+  color: #8E8E93;
+}
+
+[data-theme="dark"] .auth-switch-link {
+  color: #FFE566;
+}
+
+[data-theme="dark"] .auth-error {
+  background: #2E0A09;
+  border-color: #5C1C1A;
+}
+
+[data-theme="dark"] .auth-divider-line {
+  background: #2C2C2E;
+}

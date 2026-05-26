@@ -1,0 +1,142 @@
+/* 底部导航栏 - 鲨鱼记账风格 */
+
+.tab-navigation {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 -1px 12px rgba(0, 0, 0, 0.07);
+  z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.tab-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 52px;
+  padding: 0 4px;
+}
+
+.tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #AEAEB2;
+  transition: all 0.2s ease;
+  padding: 0 2px;
+  gap: 2px;
+  position: relative;
+  border-radius: 8px;
+}
+
+.tab-item:active {
+  transform: scale(0.90);
+}
+
+.tab-item.active {
+  color: #CC8800;
+}
+
+/* 图标容器 */
+.tab-icon-wrap {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.tab-item.active .tab-icon-wrap {
+  background: #FFF8D6;
+}
+
+.tab-icon {
+  font-size: 18px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.tab-item.active .tab-icon {
+  transform: scale(1.1);
+}
+
+.tab-label {
+  font-size: 10px;
+  font-weight: 400;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.tab-item.active .tab-label {
+  font-weight: 600;
+  font-size: 10px;
+}
+
+/* 中间记账按钮特殊样式 */
+.tab-item.tab-center {
+  position: relative;
+  top: -8px;
+}
+
+.tab-item.tab-center .tab-icon-wrap {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #FFE566;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tab-item.tab-center .tab-icon {
+  font-size: 28px;
+  font-weight: 300;
+  color: #1A1A1A;
+  line-height: 1;
+}
+
+.tab-item.tab-center:active .tab-icon-wrap {
+  background: #FFD000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.tab-item.tab-center .tab-label {
+  color: #CC8800;
+  font-weight: 600;
+}
+
+/* ── 深色模式 ── */
+[data-theme="dark"] .tab-navigation {
+  background: rgba(28, 28, 30, 0.97);
+  border-top-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 -1px 12px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .tab-item {
+  color: #636366;
+}
+
+[data-theme="dark"] .tab-item.active {
+  color: #FFD000;
+}
+
+[data-theme="dark"] .tab-item.active .tab-icon-wrap {
+  background: #332800;
+}

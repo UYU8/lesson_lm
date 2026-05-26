@@ -1,0 +1,283 @@
+/* 统计卡片样式 - 现代渐变卡片风格 */
+
+.statistics-container {
+  padding: 0 16px;
+  margin-bottom: 0;
+}
+
+/* 主统计卡片 - 渐变背景 */
+.stats-main-card {
+  background: var(--gradient-card);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(255, 149, 0, 0.30);
+  margin-bottom: 12px;
+}
+
+/* 装饰圆形 */
+.stats-main-card::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 140px;
+  height: 140px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.stats-main-card::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  left: -20px;
+  width: 160px;
+  height: 160px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+}
+
+/* 月份导航 */
+.stats-month-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.stats-month-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.stats-month-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.stats-month-btn:active {
+  transform: scale(0.92);
+}
+
+.stats-month-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.stats-month-today-btn {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  border-radius: 20px;
+  padding: 3px 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.stats-month-today-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  color: white;
+}
+
+/* 月结余大字 */
+.stats-balance-section {
+  text-align: center;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.stats-balance-label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 6px;
+}
+
+.stats-balance-amount {
+  font-size: 38px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.stats-balance-amount.negative {
+  color: #FFD6E8;
+}
+
+/* 收支小格子 */
+.stats-row {
+  display: flex;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.stats-col {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.stats-col:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.stats-col-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.stats-col-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.stats-col-dot.income {
+  background: #34C759;
+}
+
+.stats-col-dot.expense {
+  background: #FF3B30;
+}
+
+.stats-col-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.5px;
+}
+
+.stats-col-count {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
+}
+
+/* 小型日统计 */
+.stats-daily-row {
+  display: flex;
+  gap: 8px;
+}
+
+.stats-daily-mini {
+  flex: 1;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stats-daily-mini-label {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+}
+
+.stats-daily-mini-value {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.stats-daily-mini-value.income {
+  color: var(--color-income);
+}
+
+.stats-daily-mini-value.expense {
+  color: var(--color-expense);
+}
+
+.stats-daily-mini-value.net {
+  color: var(--color-text-primary);
+}
+
+/* 日期导航 */
+.stats-date-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding: 0 0 10px;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.stats-date-nav-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.stats-date-nav-btn:active {
+  transform: scale(0.9);
+}
+
+.stats-date-label {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.stats-today-btn {
+  font-size: 11px;
+  background: var(--color-primary-bg);
+  color: var(--color-primary);
+  border: none;
+  border-radius: 20px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* 加载状态 */
+.statistics-skeleton {
+  height: 180px;
+  border-radius: var(--radius-lg);
+}
+
+.statistics-loading {
+  opacity: 0.7;
+}

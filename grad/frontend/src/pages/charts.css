@@ -1,0 +1,379 @@
+/* 图表页 - 仿参考图风格（黄色顶部 + 白色内容区） */
+
+.charts-page {
+  min-height: 100vh;
+  background: #f5f5f7;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+}
+
+/* ─── 顶部黄色区域 ─── */
+.charts-header {
+  background: #FFE566;
+  padding: 36px 20px 0;
+  position: relative;
+}
+
+/* 类型切换（支出 ▾ / 收入 ▾） */
+.charts-type-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+
+.charts-type-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1C1C1E;
+  letter-spacing: 0.5px;
+}
+
+.charts-type-arrow {
+  font-size: 14px;
+  color: #1C1C1E;
+  margin-top: 2px;
+}
+
+.charts-type-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  overflow: hidden;
+  min-width: 120px;
+}
+
+.charts-type-option {
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1C1C1E;
+  text-align: center;
+  transition: background 0.15s;
+}
+
+.charts-type-option:active {
+  background: #f5f5f7;
+}
+
+.charts-type-option.active {
+  color: #FFE566;
+}
+
+/* 周/月/年 Tab */
+.charts-period-tabs {
+  display: flex;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 3px;
+  margin-bottom: 12px;
+}
+
+.charts-period-tab {
+  flex: 1;
+  padding: 9px 0;
+  border: none;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(28, 28, 30, 0.5);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 1px;
+}
+
+.charts-period-tab.active {
+  background: #1C1C1E;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 时间段滚动选择器 */
+.charts-period-scroller {
+  display: flex;
+  overflow-x: auto;
+  gap: 0;
+  padding-bottom: 0;
+  scrollbar-width: none;
+}
+
+.charts-period-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.charts-period-item {
+  flex-shrink: 0;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(28, 28, 30, 0.45);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.charts-period-item.active {
+  color: #1C1C1E;
+  font-weight: 700;
+}
+
+.charts-period-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 3px;
+  background: #1C1C1E;
+  border-radius: 2px 2px 0 0;
+}
+
+/* ─── 内容区（白色） ─── */
+.charts-body {
+  flex: 1;
+  background: #fff;
+  border-radius: 0;
+}
+
+/* 汇总 */
+.charts-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 16px 20px 4px;
+}
+
+.charts-summary-label {
+  font-size: 13px;
+  color: #6C6C70;
+  font-weight: 500;
+}
+
+.charts-summary-amount {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1C1C1E;
+}
+
+.charts-summary-avg {
+  font-size: 12px;
+  color: #AEAEB2;
+}
+
+/* 折线图容器 */
+.charts-line-wrap {
+  padding: 0 4px 8px;
+  position: relative;
+  min-height: 220px;
+}
+
+.charts-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 220px;
+}
+
+.charts-spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid #f0f0f0;
+  border-top-color: #FFE566;
+  border-radius: 50%;
+  animation: charts-spin 0.8s linear infinite;
+}
+
+@keyframes charts-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── 排行榜 ─── */
+.charts-rank-section {
+  padding: 8px 0 16px;
+  background: #fff;
+}
+
+.charts-rank-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1C1C1E;
+  padding: 8px 20px 14px;
+}
+
+.charts-rank-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.charts-rank-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 12px;
+}
+
+.charts-rank-item-tappable {
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.charts-rank-item-tappable:active {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.charts-rank-chevron {
+  font-size: 18px;
+  color: #AEAEB2;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.charts-rank-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #f5f5f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.charts-rank-icon {
+  font-size: 20px;
+  line-height: 1;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.charts-rank-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.charts-rank-top {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.charts-rank-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1C1C1E;
+  flex-shrink: 0;
+}
+
+.charts-rank-pct {
+  font-size: 12px;
+  color: #AEAEB2;
+  flex-shrink: 0;
+}
+
+.charts-rank-amount {
+  margin-left: auto;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1C1C1E;
+  flex-shrink: 0;
+}
+
+.charts-rank-bar-bg {
+  height: 4px;
+  background: #f0f0f0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.charts-rank-bar-fill {
+  height: 100%;
+  background: #FFE566;
+  border-radius: 2px;
+  transition: width 0.6s ease;
+}
+
+/* 空状态 */
+.charts-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 24px;
+}
+
+.charts-empty-icon-bg {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: #f5f5f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44px;
+  margin-bottom: 16px;
+}
+
+.charts-empty-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1C1C1E;
+  margin-bottom: 6px;
+}
+
+.charts-empty-sub {
+  font-size: 13px;
+  color: #AEAEB2;
+  text-align: center;
+  line-height: 1.5;
+}
+
+[data-theme="dark"] .charts-empty-icon-bg { background: #2C2C2E; }
+[data-theme="dark"] .charts-empty-text { color: #fff; }
+[data-theme="dark"] .charts-empty-sub { color: #636366; }
+
+/* ── 深色模式 ── */
+[data-theme="dark"] .charts-page { background: #000; }
+[data-theme="dark"] .charts-body { background: #000; }
+[data-theme="dark"] .charts-rank-section { background: #000; }
+
+[data-theme="dark"] .charts-type-menu {
+  background: #2C2C2E;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+[data-theme="dark"] .charts-type-option { color: #fff; }
+[data-theme="dark"] .charts-type-option:active { background: #3A3A3C; }
+[data-theme="dark"] .charts-type-option.active { color: #FFE566; }
+
+
+[data-theme="dark"] .charts-summary-label { color: #8E8E93; }
+[data-theme="dark"] .charts-summary-amount { color: #fff; }
+[data-theme="dark"] .charts-summary-avg { color: #636366; }
+
+[data-theme="dark"] .charts-rank-title { color: #fff; }
+[data-theme="dark"] .charts-rank-name { color: #fff; }
+[data-theme="dark"] .charts-rank-pct { color: #636366; }
+[data-theme="dark"] .charts-rank-amount { color: #fff; }
+[data-theme="dark"] .charts-rank-icon-wrap { background: #2C2C2E; }
+[data-theme="dark"] .charts-rank-bar-bg { background: #2C2C2E; }
+
+[data-theme="dark"] .charts-spinner { border-color: #2C2C2E; border-top-color: #FFE566; }
+[data-theme="dark"] .charts-empty { color: #636366; }

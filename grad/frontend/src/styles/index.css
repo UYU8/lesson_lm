@@ -1,0 +1,255 @@
+/* 全局样式 - 鲨鱼记账风格 */
+
+:root {
+  /* 主色调 - 暖黄/琥珀金 */
+  --color-primary: #FF9500;
+  --color-primary-light: #FFB84D;
+  --color-primary-dark: #E08000;
+  --color-primary-bg: #FFF4E0;
+
+  /* 功能色 */
+  --color-income: #34C759;
+  --color-income-light: #68D97F;
+  --color-income-bg: #E8F8ED;
+  --color-expense: #FF3B30;
+  --color-expense-light: #FF6B62;
+  --color-expense-bg: #FFF0EF;
+
+  /* 背景色 */
+  --color-bg: #F5F5F7;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #FFF8F0;
+
+  /* 文字色 */
+  --color-text-primary: #1C1C1E;
+  --color-text-secondary: #6C6C70;
+  --color-text-tertiary: #AEAEB2;
+  --color-text-inverse: #FFFFFF;
+
+  /* 边框色 */
+  --color-border: #E5E5EA;
+  --color-border-light: #F2F2F7;
+
+  /* 状态色 */
+  --color-success: #34C759;
+  --color-warning: #FF9500;
+  --color-error: #FF3B30;
+  --color-info: #007AFF;
+
+  /* 渐变 */
+  --gradient-primary: linear-gradient(135deg, #FF9500 0%, #FF6B00 100%);
+  --gradient-warm: linear-gradient(135deg, #FF9500 0%, #FFD060 100%);
+  --gradient-income: linear-gradient(135deg, #34C759 0%, #30D158 100%);
+  --gradient-expense: linear-gradient(135deg, #FF3B30 0%, #FF6B62 100%);
+  --gradient-card: linear-gradient(145deg, #FF9500 0%, #FF6B00 60%, #E55A00 100%);
+  --gradient-dark: linear-gradient(135deg, #1C1C1E 0%, #3A3A3C 100%);
+
+  /* 间距系统 */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  /* 字体系统 */
+  --font-size-xs: 11px;
+  --font-size-sm: 13px;
+  --font-size-base: 15px;
+  --font-size-lg: 17px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
+
+  /* 圆角 */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* 阴影 */
+  --shadow-sm: 0 2px 8px rgba(255, 149, 0, 0.10);
+  --shadow-md: 0 4px 20px rgba(255, 149, 0, 0.15);
+  --shadow-lg: 0 8px 32px rgba(255, 149, 0, 0.20);
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+
+  /* 底部导航高度 */
+  --tab-bar-height: 68px;
+  --tab-bar-safe: env(safe-area-inset-bottom, 0px);
+}
+
+/* ── 深色模式变量覆盖 ── */
+[data-theme="dark"] {
+  --color-bg: #000000;
+  --color-surface: #1C1C1E;
+  --color-surface-2: #2C2C2E;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #8E8E93;
+  --color-text-tertiary: #636366;
+  --color-border: #38383A;
+  --color-border-light: #2C2C2E;
+  --color-primary-bg: #2C1F00;
+  --color-income-bg: #0A2214;
+  --color-expense-bg: #2E0A09;
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .skeleton {
+  background: linear-gradient(90deg, #2C2C2E 25%, #3A3A3C 50%, #2C2C2E 75%);
+  background-size: 200% 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F5F5F7;
+  color: #1C1C1E;
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--color-bg);
+  position: relative;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+/* 公共组件样式 */
+.page-container {
+  min-height: 100vh;
+  background: var(--color-bg);
+  padding-bottom: calc(var(--tab-bar-height) + var(--tab-bar-safe));
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.section-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+/* 通用标签 */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
+.badge-income {
+  background: var(--color-income-bg);
+  color: var(--color-income);
+}
+
+.badge-expense {
+  background: var(--color-expense-bg);
+  color: var(--color-expense);
+}
+
+/* 金额样式 */
+.amount-income {
+  color: var(--color-income);
+  font-weight: 600;
+}
+
+.amount-expense {
+  color: var(--color-expense);
+  font-weight: 600;
+}
+
+/* 加载骨架屏 */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+
+/* 过渡动画 */
+.fade-in {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 弹性加载旋转 */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}

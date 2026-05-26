@@ -1,0 +1,583 @@
+/* ===== 账单页面 - 鲨鱼记账风格（图二） ===== */
+
+.bill-page {
+  min-height: 100%;
+  background: #F7F7F7;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px;
+}
+
+/* ===== 顶部导航栏 ===== */
+.bill-navbar {
+  display: flex;
+  align-items: center;
+  padding: 44px 14px 12px;
+  background: #FFFFFF;
+  gap: 6px;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.bill-back-btn {
+  font-size: 24px;
+  color: #333;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 2px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.bill-year-selector {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.bill-year-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+.bill-year-arrow {
+  font-size: 10px;
+  color: #666;
+}
+
+/* 月账单/年账单 切换 pill */
+.bill-type-toggle {
+  display: flex;
+  background: #EFEFEF;
+  border-radius: 9px;
+  padding: 2px;
+  margin: 0 auto 0 10px;
+  flex-shrink: 0;
+}
+
+.bill-type-btn {
+  padding: 4px 12px;
+  border: none;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #888888;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.bill-type-btn.active {
+  background: #1A1A1A;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* 右侧操作图标 */
+.bill-navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.bill-navbar-icon-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid #DDDDDD;
+  background: none;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -1px;
+}
+
+/* ===== 年账单黄色总计卡片 ===== */
+.bill-year-card {
+  margin: 12px 14px 6px;
+  background: linear-gradient(135deg, #FFE566 0%, #FFD966 100%);
+  border-radius: 14px;
+  padding: 16px 18px 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景大¥符号 */
+.bill-year-card-bg-icon {
+  position: absolute;
+  right: -8px;
+  top: -6px;
+  font-size: 80px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.22);
+  line-height: 1;
+  pointer-events: none;
+  font-family: serif;
+}
+
+.bill-year-card-label {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 4px;
+  position: relative;
+}
+
+.bill-year-card-balance {
+  font-size: 30px;
+  font-weight: 800;
+  color: #1A1A1A;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.bill-year-card-row {
+  display: flex;
+  gap: 24px;
+  position: relative;
+}
+
+.bill-year-card-sub {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.bill-year-card-sub strong {
+  font-weight: 700;
+  color: #1A1A1A;
+  margin-left: 3px;
+}
+
+/* ===== 月份表格 ===== */
+.bill-month-table {
+  margin: 0;
+  background: #FFFFFF;
+  border-radius: 0;
+}
+
+/* 表头 */
+.bill-month-table-header {
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.bill-month-table-header span {
+  font-size: 12px;
+  color: #AAAAAA;
+  font-weight: 400;
+}
+
+/* 月份行 */
+.bill-month-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 13px 14px;
+  border: none;
+  background: #FFFFFF;
+  border-bottom: 1px solid #F5F5F5;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.12s;
+}
+
+.bill-month-row:active {
+  background: #F9F9F9;
+}
+
+/* 列宽 */
+.bill-col-month {
+  flex: 0 0 36px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+
+.bill-col-income {
+  flex: 1;
+  font-size: 13px;
+  color: #34C759;
+  text-align: center;
+}
+
+.bill-col-expense {
+  flex: 1;
+  font-size: 13px;
+  color: #FF3B30;
+  text-align: center;
+}
+
+.bill-col-balance {
+  flex: 1;
+  font-size: 13px;
+  color: #1A1A1A;
+  text-align: right;
+}
+
+.bill-col-arrow {
+  flex: 0 0 14px;
+  font-size: 14px;
+  color: #CCCCCC;
+  text-align: right;
+}
+
+/* ===== 月账单视图 ===== */
+.bill-month-view {
+  display: flex;
+  flex-direction: column;
+}
+
+.bill-month-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 12px 0 0;
+}
+
+.bill-month-nav-btn {
+  font-size: 20px;
+  color: #AAAAAA;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.bill-month-nav-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1A1A1A;
+  min-width: 44px;
+  text-align: center;
+}
+
+/* ===== 月账单交易流水 ===== */
+.bill-txn-list {
+  background: #FFFFFF;
+  margin: 0;
+}
+
+.bill-day-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 14px 6px;
+  background: #FFFFFF;
+}
+
+.bill-day-label {
+  font-size: 12px;
+  color: #999999;
+}
+
+.bill-day-summary {
+  font-size: 12px;
+  color: #999999;
+}
+
+.bill-txn-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  gap: 10px;
+  background: #FFFFFF;
+  border-top: 1px solid #F5F5F5;
+}
+
+.bill-txn-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #F5F5F5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.bill-txn-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.bill-txn-name {
+  font-size: 14px;
+  color: #1A1A1A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bill-txn-amount {
+  font-size: 15px;
+  font-weight: 600;
+  flex-shrink: 0;
+  color: #1A1A1A;
+}
+
+.bill-txn-amount.income { color: #34C759; }
+.bill-txn-amount.expense { color: #FF3B30; }
+
+/* 空状态 */
+.bill-empty {
+  padding: 56px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bill-empty-icon-bg {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #f5f5f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.bill-empty-text {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1C1C1E;
+  margin-bottom: 8px;
+}
+
+.bill-empty-sub {
+  font-size: 13px;
+  color: #AEAEB2;
+  line-height: 1.5;
+}
+
+/* 加载 */
+.bill-loading {
+  padding: 24px;
+  text-align: center;
+  color: #AAAAAA;
+  font-size: 13px;
+}
+
+/* ===== 年份选择器 Picker ===== */
+.picker-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 500;
+  display: flex;
+  align-items: flex-end;
+}
+
+.picker-sheet {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border-radius: 18px 18px 0 0;
+  padding: 0 0 32px;
+  animation: sheetUp 0.25s ease;
+}
+
+@keyframes sheetUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.picker-handle {
+  width: 36px;
+  height: 4px;
+  background: #E0E0E0;
+  border-radius: 2px;
+  margin: 10px auto 4px;
+}
+
+.picker-year-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px 8px;
+}
+
+.picker-year-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+.picker-year-list {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 16px 0;
+  gap: 2px;
+}
+
+.picker-year-item {
+  padding: 13px 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1A1A1A;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+}
+
+.picker-year-item:hover {
+  background: #F5F5F5;
+}
+
+.picker-year-item.selected {
+  background: #FFE566;
+  font-weight: 700;
+}
+
+/* ── 深色模式 ── */
+[data-theme="dark"] .bill-page {
+  background: #000;
+}
+
+[data-theme="dark"] .bill-navbar {
+  background: #1C1C1E;
+  border-bottom-color: #2C2C2E;
+}
+
+[data-theme="dark"] .bill-back-btn,
+[data-theme="dark"] .bill-year-text {
+  color: #fff;
+}
+
+[data-theme="dark"] .bill-year-arrow {
+  color: #8E8E93;
+}
+
+[data-theme="dark"] .bill-type-toggle {
+  background: #2C2C2E;
+}
+
+[data-theme="dark"] .bill-type-btn {
+  color: #636366;
+}
+
+[data-theme="dark"] .bill-type-btn.active {
+  background: #fff;
+  color: #1C1C1E;
+}
+
+[data-theme="dark"] .bill-navbar-icon-btn {
+  border-color: #3A3A3C;
+  color: #8E8E93;
+}
+
+[data-theme="dark"] .bill-month-table {
+  background: #1C1C1E;
+}
+
+[data-theme="dark"] .bill-month-table-header {
+  border-bottom-color: #2C2C2E;
+}
+
+[data-theme="dark"] .bill-month-table-header span {
+  color: #636366;
+}
+
+[data-theme="dark"] .bill-month-row {
+  background: #1C1C1E;
+  border-bottom-color: #2C2C2E;
+}
+
+[data-theme="dark"] .bill-month-row:active {
+  background: #2C2C2E;
+}
+
+[data-theme="dark"] .bill-col-month,
+[data-theme="dark"] .bill-col-balance {
+  color: #fff;
+}
+
+[data-theme="dark"] .bill-col-income { color: #30D158; }
+[data-theme="dark"] .bill-col-expense { color: #FF453A; }
+
+[data-theme="dark"] .bill-col-arrow {
+  color: #48484A;
+}
+
+[data-theme="dark"] .bill-month-nav-label {
+  color: #fff;
+}
+
+[data-theme="dark"] .bill-month-nav-btn {
+  color: #636366;
+}
+
+[data-theme="dark"] .bill-txn-list {
+  background: #1C1C1E;
+}
+
+[data-theme="dark"] .bill-day-header {
+  background: #1C1C1E;
+}
+
+[data-theme="dark"] .bill-day-label,
+[data-theme="dark"] .bill-day-summary {
+  color: #636366;
+}
+
+[data-theme="dark"] .bill-txn-item {
+  background: #1C1C1E;
+  border-top-color: #2C2C2E;
+}
+
+[data-theme="dark"] .bill-txn-avatar {
+  background: #2C2C2E;
+}
+
+[data-theme="dark"] .bill-txn-name {
+  color: #fff;
+}
+
+[data-theme="dark"] .bill-txn-amount.income { color: #30D158; }
+[data-theme="dark"] .bill-txn-amount.expense { color: #FF453A; }
+
+[data-theme="dark"] .bill-empty-icon-bg { background: #2C2C2E; }
+[data-theme="dark"] .bill-empty-text { color: #fff; }
+[data-theme="dark"] .bill-empty-sub { color: #636366; }
+
+[data-theme="dark"] .bill-loading {
+  color: #636366;
+}
+
+[data-theme="dark"] .picker-sheet {
+  background: #1C1C1E;
+}
+
+[data-theme="dark"] .picker-handle {
+  background: #3A3A3C;
+}
+
+[data-theme="dark"] .picker-year-title {
+  color: #fff;
+}
+
+[data-theme="dark"] .picker-year-item {
+  color: #fff;
+}
+
+[data-theme="dark"] .picker-year-item:hover {
+  background: #2C2C2E;
+}

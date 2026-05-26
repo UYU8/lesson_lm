@@ -1,0 +1,370 @@
+/* 报表页面样式 - 鲨鱼记账风格 */
+
+.report-page {
+  min-height: 100vh;
+  background: var(--color-bg);
+  padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+}
+
+/* 顶部 Header */
+.report-header {
+  background: linear-gradient(145deg, #1C1C1E 0%, #3A3A3C 60%, #555558 100%);
+  padding: 52px 20px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.report-header::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -40px;
+  width: 180px;
+  height: 180px;
+  background: rgba(255, 149, 0, 0.12);
+  border-radius: 50%;
+}
+
+.report-header::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: -30px;
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 149, 0, 0.08);
+  border-radius: 50%;
+}
+
+.report-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 20px;
+}
+
+.report-header-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.5px;
+}
+
+.report-header-subtitle {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
+}
+
+/* 月/年 Tab 切换 */
+.report-tab-bar {
+  display: flex;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.report-tab {
+  flex: 1;
+  padding: 9px;
+  border: none;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.report-tab.active {
+  background: #FF9500;
+  color: white;
+  box-shadow: 0 2px 8px rgba(255, 149, 0, 0.4);
+}
+
+/* 主内容 */
+.report-content {
+  background: var(--color-bg);
+  border-radius: 24px 24px 0 0;
+  margin-top: -20px;
+  padding: 20px 16px;
+  min-height: 400px;
+}
+
+/* 时间选择导航 */
+.report-period-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-card);
+}
+
+.report-period-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.report-period-btn:active {
+  transform: scale(0.9);
+  background: var(--color-primary-bg);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.report-period-label {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+/* 汇总卡片区 */
+.report-summary-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.report-summary-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 14px 12px;
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+
+.report-summary-card.income-card {
+  background: linear-gradient(135deg, #E8F8ED 0%, #F0FBF4 100%);
+}
+
+.report-summary-card.expense-card {
+  background: linear-gradient(135deg, #FFF0EF 0%, #FFF5F5 100%);
+}
+
+.report-summary-card.balance-card {
+  background: linear-gradient(135deg, #FFF4E0 0%, #FFFAF0 100%);
+}
+
+.report-summary-emoji {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.report-summary-label {
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.report-summary-amount {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.report-summary-amount.income {
+  color: var(--color-income);
+}
+
+.report-summary-amount.expense {
+  color: var(--color-expense);
+}
+
+.report-summary-amount.balance {
+  color: var(--color-primary);
+}
+
+.report-summary-amount.negative {
+  color: var(--color-expense);
+}
+
+/* 图表卡片 */
+.report-chart-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 18px 16px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-card);
+}
+
+.report-chart-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.report-chart-title-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--color-primary-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* 分类统计列表 */
+.category-stat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.category-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.category-stat-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  background: var(--color-bg);
+}
+
+.category-stat-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.category-stat-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 5px;
+}
+
+.category-stat-bar-wrap {
+  height: 5px;
+  background: var(--color-border-light);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.category-stat-bar {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+
+.category-stat-bar.income {
+  background: linear-gradient(90deg, #34C759, #68D97F);
+}
+
+.category-stat-bar.expense {
+  background: linear-gradient(90deg, #FF9500, #FFB84D);
+}
+
+.category-stat-amount {
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+  min-width: 70px;
+  text-align: right;
+}
+
+.category-stat-amount.income {
+  color: var(--color-income);
+}
+
+.category-stat-amount.expense {
+  color: var(--color-primary);
+}
+
+.category-stat-percent {
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+  flex-shrink: 0;
+  min-width: 36px;
+  text-align: right;
+}
+
+/* 空状态 */
+.report-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 24px;
+}
+
+.report-empty-icon {
+  font-size: 52px;
+  margin-bottom: 12px;
+}
+
+.report-empty-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: 6px;
+}
+
+.report-empty-hint {
+  font-size: 13px;
+  color: var(--color-text-tertiary);
+}
+
+/* 加载状态 */
+.report-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--color-text-tertiary);
+  font-size: 14px;
+}
+
+.report-loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* ── 深色模式 ── */
+[data-theme="dark"] .report-summary-card.income-card {
+  background: linear-gradient(135deg, #0A2214 0%, #0F2C1A 100%);
+}
+
+[data-theme="dark"] .report-summary-card.expense-card {
+  background: linear-gradient(135deg, #2E0A09 0%, #3A0F0E 100%);
+}
+
+[data-theme="dark"] .report-summary-card.balance-card {
+  background: linear-gradient(135deg, #2C1F00 0%, #3A2800 100%);
+}

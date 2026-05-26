@@ -1,0 +1,502 @@
+/* ===== 明细页面 - 鲨鱼记账风格 ===== */
+
+.details-page {
+  min-height: 100%;
+  background: #F7F7F7;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 68px;
+}
+
+/* ===== 顶部黄色区域 ===== */
+.details-top {
+  background: #FFE566;
+  padding: 28px 16px 0;
+  position: relative;
+}
+
+/* 标题行 */
+.details-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.details-app-icon {
+  font-size: 18px;
+  position: absolute;
+  left: 0;
+  color: rgba(0, 0, 0, 0.45);
+  line-height: 1;
+}
+
+.details-app-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1A1A1A;
+  letter-spacing: 1.5px;
+}
+
+/* AI 助手入口 */
+.details-ai-btn {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: background 0.15s;
+  z-index: 10;
+}
+
+.details-ai-btn:active {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* 年月 + 收支统计行 */
+.details-stats-row {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+/* 月份选择器 */
+.details-month-selector {
+  flex-shrink: 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.details-year-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 1px;
+}
+
+.details-month-text {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1A1A1A;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.details-month-arrow {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1A1A1A;
+  margin-top: 4px;
+}
+
+/* 分隔线 */
+.details-stats-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(0, 0, 0, 0.15);
+  margin: 0 16px;
+  flex-shrink: 0;
+}
+
+/* 收入/支出区块 */
+.details-stat-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.details-stat-label {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+}
+
+.details-stat-value {
+  display: flex;
+  align-items: baseline;
+  gap: 0px;
+}
+
+.details-stat-main {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1A1A1A;
+  line-height: 1;
+}
+
+.details-stat-decimal {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+
+/* 月份切换导航 */
+.details-month-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  padding-bottom: 10px;
+}
+
+.details-month-nav-btn {
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.55);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.details-month-nav-btn:hover {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.details-month-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* ===== 快捷功能卡片 ===== */
+.details-shortcuts-wrap {
+  padding: 0 12px;
+  margin-top: -1px;
+}
+
+.details-shortcuts-card {
+  background: #FFFFFF;
+  border-radius: 14px 14px 0 0;
+  padding: 12px 16px 10px;
+  display: flex;
+  gap: 0;
+  box-shadow: 0 -2px 0 #FFE566;
+}
+
+.details-shortcut-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 10px;
+  transition: background 0.15s;
+}
+
+.details-shortcut-item:active {
+  background: #F5F5F5;
+}
+
+.details-shortcut-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #FFF8E0;
+  border: 1.5px solid #FFE066;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details-shortcut-icon {
+  font-size: 18px;
+  color: #CC8800;
+}
+
+.details-shortcut-label {
+  font-size: 11px;
+  color: #333333;
+  font-weight: 500;
+}
+
+/* ===== 交易流水区 ===== */
+.details-list-area {
+  flex: 1;
+  background: #FFFFFF;
+  margin: 0 12px;
+  border-radius: 0 0 14px 14px;
+  padding: 0 0 8px;
+  margin-bottom: 10px;
+}
+
+/* 日期分组 */
+.details-day-group {
+  padding: 0;
+}
+
+/* 日期头 */
+.details-day-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 14px 6px;
+  background: #FFFFFF;
+}
+
+.details-day-label {
+  font-size: 12px;
+  color: #999999;
+  font-weight: 400;
+}
+
+.details-day-summary {
+  font-size: 12px;
+  color: #999999;
+}
+
+.details-day-sep {
+  display: inline-block;
+  width: 6px;
+}
+
+/* 交易条目 */
+.details-txn-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  gap: 10px;
+  background: #FFFFFF;
+  border-top: 1px solid #F5F5F5;
+}
+
+.details-txn-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #F5F5F5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.details-txn-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.details-txn-name {
+  font-size: 14px;
+  color: #1A1A1A;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.details-txn-amount {
+  font-size: 16px;
+  font-weight: 600;
+  flex-shrink: 0;
+  color: #1A1A1A;
+}
+
+.details-txn-amount.income { color: #34C759; }
+.details-txn-amount.expense { color: #FF3B30; }
+
+[data-theme="dark"] .details-txn-amount.income { color: #30D158; }
+[data-theme="dark"] .details-txn-amount.expense { color: #FF453A; }
+
+/* 空状态 */
+.details-empty {
+  padding: 56px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.details-empty-icon-bg {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #f5f5f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.details-empty-text {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1C1C1E;
+  margin-bottom: 8px;
+}
+
+.details-empty-sub {
+  font-size: 13px;
+  color: #AEAEB2;
+  line-height: 1.5;
+}
+
+.details-loading {
+  padding: 30px;
+  text-align: center;
+  color: #AAAAAA;
+  font-size: 13px;
+}
+
+/* ===== 月份选择器 Picker ===== */
+.picker-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 500;
+  display: flex;
+  align-items: flex-end;
+}
+
+.picker-sheet {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border-radius: 18px 18px 0 0;
+  padding: 0 0 32px;
+  animation: sheetUp 0.25s ease;
+}
+
+@keyframes sheetUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.picker-handle {
+  width: 36px;
+  height: 4px;
+  background: #E0E0E0;
+  border-radius: 2px;
+  margin: 10px auto 4px;
+}
+
+.picker-year-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 12px 20px 8px;
+}
+
+.picker-year-btn {
+  font-size: 22px;
+  color: #666;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+
+.picker-year-btn:hover {
+  background: #F5F5F5;
+}
+
+.picker-year-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.picker-year-label {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1A1A1A;
+  min-width: 72px;
+  text-align: center;
+}
+
+.picker-month-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 8px 16px 0;
+}
+
+.picker-month-btn {
+  padding: 10px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1A1A1A;
+  background: #F5F5F5;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.picker-month-btn:hover {
+  background: #FFE066;
+}
+
+.picker-month-btn.selected {
+  background: #FFE566;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+.picker-month-btn.disabled {
+  color: #CCCCCC;
+  cursor: default;
+  background: #F9F9F9;
+}
+
+/* ── 深色模式 ── */
+[data-theme="dark"] .details-page { background: #000; }
+[data-theme="dark"] .details-content { background: #000; }
+
+[data-theme="dark"] .details-quick-card {
+  background: #1C1C1E;
+  box-shadow: 0 -2px 0 #FFE566;
+}
+[data-theme="dark"] .details-quick-item-label,
+[data-theme="dark"] .details-month-year { color: #8E8E93; }
+[data-theme="dark"] .details-quick-item-icon { background: #2C2C2E; }
+
+[data-theme="dark"] .details-group-header { background: #000; }
+[data-theme="dark"] .details-group-date,
+[data-theme="dark"] .details-group-weekday { color: #8E8E93; }
+[data-theme="dark"] .details-group-summary { color: #636366; }
+
+[data-theme="dark"] .details-tx-item { background: #1C1C1E; border-color: #2C2C2E; }
+[data-theme="dark"] .details-tx-item:active { background: #2C2C2E; }
+[data-theme="dark"] .details-tx-name { color: #fff; }
+[data-theme="dark"] .details-tx-note,
+[data-theme="dark"] .details-tx-date { color: #636366; }
+[data-theme="dark"] .details-tx-icon { background: #2C2C2E; }
+
+[data-theme="dark"] .details-empty-icon-bg { background: #1C1C1E; }
+[data-theme="dark"] .details-empty-text { color: #8E8E93; }
+[data-theme="dark"] .details-empty-sub { color: #636366; }
+
+[data-theme="dark"] .details-picker-mask { background: rgba(0,0,0,0.7); }
+[data-theme="dark"] .details-picker-sheet { background: #1C1C1E; }
+[data-theme="dark"] .details-picker-title { color: #fff; border-color: #38383A; }
+[data-theme="dark"] .details-picker-month-item { color: #8E8E93; }
+[data-theme="dark"] .details-picker-month-item.active {
+  background: #FFE566;
+  color: #1C1C1E;
+}

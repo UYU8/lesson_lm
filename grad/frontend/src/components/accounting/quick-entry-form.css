@@ -1,0 +1,365 @@
+/* 快速录入表单样式 - 底部面板版 */
+
+.quick-entry-form {
+  background: var(--color-surface);
+}
+
+/* ===== 类型切换 Tab ===== */
+.type-tab-bar {
+  display: flex;
+  background: var(--color-bg);
+  padding: 6px;
+  gap: 4px;
+  margin: 12px 16px;
+  border-radius: 14px;
+}
+
+.type-tab {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--color-text-secondary);
+  background: transparent;
+}
+
+.type-tab.active.expense {
+  background: linear-gradient(135deg, #FF3B30, #FF6B62);
+  color: white;
+  box-shadow: 0 3px 12px rgba(255, 59, 48, 0.30);
+}
+
+.type-tab.active.income {
+  background: linear-gradient(135deg, #34C759, #68D97F);
+  color: white;
+  box-shadow: 0 3px 12px rgba(52, 199, 89, 0.30);
+}
+
+/* ===== 金额输入区 ===== */
+.amount-section {
+  padding: 8px 20px 16px;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.amount-label {
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.amount-input-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+}
+
+.amount-currency {
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  line-height: 1;
+}
+
+.amount-input {
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  text-align: center;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  caret-color: var(--color-primary);
+}
+
+.amount-input::placeholder {
+  color: var(--color-text-tertiary);
+  font-weight: 300;
+}
+
+/* 快捷金额行 */
+.amount-shortcuts {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.amount-shortcut-btn {
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-bg);
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+.amount-shortcut-btn:active {
+  background: var(--color-primary-bg);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* ===== 表单内容区 ===== */
+.form-body {
+  padding: 14px 16px;
+}
+
+.form-row {
+  margin-bottom: 16px;
+}
+
+.form-row:last-child {
+  margin-bottom: 0;
+}
+
+.form-row-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+/* ===== 分类选择网格 ===== */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.category-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 4px;
+  border-radius: 14px;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-bg);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.category-chip:active {
+  transform: scale(0.93);
+}
+
+.category-chip.active {
+  border-color: transparent;
+  background: var(--color-primary-bg);
+  box-shadow: 0 2px 8px rgba(255, 149, 0, 0.15);
+}
+
+.category-chip.active .category-chip-name {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.category-chip-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.category-chip-name {
+  font-size: 10px;
+  color: var(--color-text-secondary);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* ===== 日期快捷选择 ===== */
+.date-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.date-chip {
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-bg);
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-weight: 500;
+}
+
+.date-chip.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary-bg);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.date-chip-custom {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.date-chip-custom input[type="date"] {
+  border: none;
+  background: none;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  width: 110px;
+}
+
+/* ===== 备注输入 ===== */
+.note-input {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: 12px;
+  font-size: 14px;
+  color: var(--color-text-primary);
+  transition: all 0.2s;
+  resize: none;
+  min-height: 64px;
+  box-sizing: border-box;
+}
+
+.note-input:focus {
+  border-color: var(--color-primary);
+  background: var(--color-primary-bg);
+  outline: none;
+}
+
+.note-input::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+/* ===== 标签选择 ===== */
+.tag-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag-chip {
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-bg);
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tag-chip.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary-bg);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ===== 提示信息 ===== */
+.form-error-msg {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-expense);
+  font-size: 13px;
+  padding: 10px 14px;
+  background: var(--color-expense-bg);
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.form-success-msg {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-income);
+  font-size: 13px;
+  padding: 10px 14px;
+  background: var(--color-income-bg);
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+/* ===== 提交按钮 ===== */
+.submit-area {
+  padding: 8px 16px 20px;
+  border-top: 1px solid var(--color-border-light);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 17px;
+  border: none;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  letter-spacing: 0.3px;
+}
+
+.submit-btn.expense {
+  background: linear-gradient(135deg, #FF3B30, #FF6B62);
+  color: white;
+  box-shadow: 0 6px 20px rgba(255, 59, 48, 0.40);
+}
+
+.submit-btn.income {
+  background: linear-gradient(135deg, #34C759, #68D97F);
+  color: white;
+  box-shadow: 0 6px 20px rgba(52, 199, 89, 0.40);
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.submit-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ===== 加载动画 ===== */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

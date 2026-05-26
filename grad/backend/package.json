@@ -1,0 +1,51 @@
+{
+  "name": "mobile-accounting-backend",
+  "version": "0.1.0",
+  "description": "移动端记账本后端服务",
+  "private": true,
+  "egg": {
+    "declarations": true
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.6.1",
+    "egg": "^3.0.0",
+    "egg-cors": "^2.2.3",
+    "egg-jwt": "^3.1.7",
+    "egg-sequelize": "^6.0.0",
+    "egg-validate": "^2.0.2",
+    "mysql2": "^3.0.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "egg-bin": "^6.0.0",
+    "egg-ci": "^2.0.0",
+    "egg-mock": "^5.15.0",
+    "eslint": "^8.0.0",
+    "eslint-config-egg": "^12.0.0",
+    "typescript": "^4.9.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "start": "egg-scripts start --daemon",
+    "stop": "egg-scripts stop",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "test": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov"
+  },
+  "ci": {
+    "version": "14, 16, 18"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "MIT"
+}
