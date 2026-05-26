@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue todos</title>
+    <style>
+        .done{
+            color:gray;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h2>{{title}}</h2>
+        <input type="text" id="todo-input" v-model="title" 
+         @keydown.enter="addTodo"/>
+        <ul>
+            <li v-for="todo in todos">
+                <!-- 动态样式任务，提供了语法支持  -->
+                <span v-bind:class="{done: todo.done}">{{todo.title}}</span>
+            </li>
+        </ul>
+    </div>
+    <script src = 'https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/vue/3.2.31/vue.global.min.js'></script>
+    <script>
+         const App = {
+            // vue 2.0 
+            data(){
+                return{
+                    title:"",
+                    todos:[
+                       {title: '吃饭',done:false},
+                       {title: '睡觉',done:true}
+                    ]
+                }
+            },
+            // 事件处理函数
+            methods:{
+                addTodo(){
+                    // this.data.todos -> this.todos
+                    this.todos.push({
+                        title:this.title,
+                        done:false
+                    })
+                    this.title = ''
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

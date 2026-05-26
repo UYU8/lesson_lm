@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿里双11</title>
+    <script>
+        // 阻塞 来动态设置 html 的 font-size
+        // 立即执行函数 
+        (function(){
+            // console.log('立即执行函数')
+            function calc(){
+                // 获取html的宽度
+                const w = document.documentElement.clientWidth;
+                console.log(w)
+                document.documentElement.style.fontSize 
+                = 75*(w / 750) + 'px';
+                // console.log(document.documentElement.style.fontSize)
+            }
+            calc()
+            window.onresize = function(){
+                console.log('resize');
+                calc()
+            };
+        })()
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+    </style>
+</head>
+<body>
+<div style = "width: 10rem;height: 2rem;background-color: red;"></div>
+<div style = "font-size:0;">
+<div style = "width: 5rem;height: 2rem;background-color: green;display: inline-block;font-size:20px;color:white;">11</div>
+<div style = "width: 5rem;height: 2rem;background-color: blue;display: inline-block;">222</div>
+</div>
+</body>
+</html>

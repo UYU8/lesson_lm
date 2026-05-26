@@ -1,0 +1,19 @@
+{
+    "users":[
+        {
+            "id":1,
+            "name":"喻文凯",
+            "hometown":"南昌"
+        },
+        {
+            "id":2,
+            "name":"奶龙",
+            "hometown":"上海"
+        },
+        {
+            "id":3,
+            "name":"小鱼",
+            "hometown":"北京"
+        }
+    ]
+}

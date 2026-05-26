@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <title>React Counter Example</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/react/17.0.2/umd/react.development.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/react-dom/17.0.2/umd/react-dom.development.js"></script>
+    <!-- 引入 Babel 编译 JSX 使用 BootCDN -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <!-- 应用程序挂载点 -->
+     <!-- 挂载点 -->
+    <div id="root"></div>
+    <script type="text/babel">
+        // 函数组件 如果返回的是html就被叫做函数组件 函数组件可以挂载到挂载点上
+        const{
+            useState
+        } = React
+        function Counter(){
+            const [count,setCount] = React.useState(0) // 响应式 数据状态 解构？
+            // const count = 0;
+            const increment = ()=>{
+                setCount(count+1)
+            }
+            return(
+                <div>
+                    Count:{count}
+                    <button onClick={increment}>+1</button>
+                </div>
+            )
+        }
+        ReactDOM.render(<Counter/>,document.getElementById('root'))
+    </script>
+</body>
+</html>

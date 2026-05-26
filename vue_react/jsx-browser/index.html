@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX</title>
+</head>
+<body>
+    <div id="example"></div>
+    <script src="./react.js"></script>
+    <script src="./react-dom.js"></script>
+    <script src="./babel.min.js"></script>
+    <script type="text/babel">
+        // 等待转换为 text/babel 某种格式的JS
+        // babel 来执行一下转译
+        // JSX synatx 不支持
+        // const myTitle = <h1>Hello, world!</h1>;
+        // console.log(myTitle)
+        ReactDOM.render(
+            <h1>Hello, world!</h1>,
+            document.getElementById('example')
+        )
+    </script>
+</body>
+</html>

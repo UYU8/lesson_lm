@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="members">
+
+    </ul>
+    <script>
+        // 函数，url，请求默认的method是 GET 新的API（不属于es6 也不是html5）基于promise
+        // js 主动发起http 请求 fetch XMLHttpRequest 
+        // 
+        console.log(fetch('https://api.github.com/orgs/lemoncode/members'))
+        //   .then(res => res.json()) // JSON 异步
+        //   .then(data => { 
+        //     // console.log(data);
+        //     document.getElementById('members').innerHTML = data.map(member => `
+        //     <li>
+        //         <a href="${member.html_url}">${member.login}</a>
+        //     </li>
+        //     `).join('');
+        //   })
+    </script>
+</body>
+</html>

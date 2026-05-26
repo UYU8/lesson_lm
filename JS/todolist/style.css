@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.todo{
+    width: 500px;
+    height: 500px;
+    /*border: 1px solid #000;*/
+    margin-top: 30px;
+}
+.title{
+    font-size: 50px;
+    text-align: center;
+    color: red;
+}
+.input-group{
+    font-size: 30px;
+    display: flex;
+}
+.label{
+padding: 10px;
+}
+.content{
+    flex: 1;
+    font-size: 20px;
+}
+.btn{
+    width: 80px;
+    font-size: 30px;
+    margin-left: 10px;
+} 
+
+.list-item{
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #aaa;
+    font-size: 26px;
+    align-items: center;
+}
+.item-check{
+    width: 26px;
+    height: 26px;
+    /* margin-right: 10px; */
+}
+.item-content{
+    flex: 1;
+    margin: 0 0 0 10px;
+}
+.close{
+    margin-left: 10px;
+    display: none;
+}
+.list-item:hover .close{
+    display: block;
+}

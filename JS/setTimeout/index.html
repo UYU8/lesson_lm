@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器</title>
+</head>
+<body>
+    <button id="btn1">提前关闭setTimeout定时器</button>
+    <button id="btn2">关闭定时器</button>
+    <script>
+        // 卡，js是单线程语言，setTimeout是异步的，
+        // 要是卡住等待 页面都会卡住 不能响应其他事件和交互
+        // 所以会先输出123，再输出setTimeout
+        // 1-5 ms延迟
+
+        const btn1 = document.getElementById('btn1')
+        const btn2 = document.getElementById('btn2')
+
+        btn1.addEventListener('click',function(){
+            clearTimeout(timeout)
+        })
+        btn2.addEventListener('click',function(){
+            clearInterval(interval)
+        })
+
+        const timeout = setTimeout(function(){
+            console.log('2')
+        },10000)
+        // 同步代码
+        // while(true){
+
+        // }
+        const interval = setInterval(function(){
+            console.log('a')
+        },1000)
+        console.log(123)
+    </script>
+</body>
+</html>

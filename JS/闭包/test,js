@@ -1,0 +1,7 @@
+function foo(){
+
+}
+
+(function(){
+
+})()  //立即执行函数

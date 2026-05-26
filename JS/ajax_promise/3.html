@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // https://api.github.com/orgs/lemoncode/members url-> http(200) -> 异步耗时任务 -> 执行流程
+        // -> 执行流程（DOM) -> Promise
+        const getJSON = function(url){
+            return new Promise((resolve, reject) => {
+                // 封装耗时性任务
+                const xhr = new XMLHttpRequest() // 浏览器嗅探 IE 早期浏览器不支持
+                ? new XMLHttpRequest()
+                : new ActiveXObject('Microsoft.XMLHTTP'); // 微软推出的核心对象
+                xhr.open('GET', url, true) // 第三个参数为 是否异步
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState !== 4) return;
+                    // 304 NOT MODIFIED 缓存
+                    // 第一次 查找 200 后端开销
+                    // 之后来，只要后端数据没有发生改变，没有必要再去查，
+                    // 304，不传内容
+                    // 告诉浏览器，直接使用本地数据
+
+                    if(xhr.status === 200 || xhr.status === 304){
+                        resolve(xhr.responseText)
+                    }else{
+                        reject(new Error(xhr.statusText))
+                    }
+                }
+                xhr.send();
+            }) // executor 执行器 在实例化时 会立即执行
+        }
+        getJSON('https://api.github.com/orgs/lemoncode/members')
+        .then(data =>{
+           console.log(JSON.parse(data));
+        })
+    </script>
+</body>
+</html>
