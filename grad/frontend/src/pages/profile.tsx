@@ -61,6 +61,7 @@ const ProfilePage: React.FC = () => {
     {
       key: 'account',
       items: [
+        { icon: '📢', bg: '#5AC8FA', label: '我的分享', action: () => navigate('/my-shares'), toggle: false },
         { icon: '🔑', bg: '#FF9500', label: '修改密码', action: () => navigate('/change-password'), toggle: false },
         { icon: '🎨', bg: '#FF2D55', label: '深色模式', action: toggleTheme, toggle: true },
       ],

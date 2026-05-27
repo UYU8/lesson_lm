@@ -5,6 +5,8 @@ export interface User {
   id: string;
   username: string;
   email: string;
+  role?: 'user' | 'admin';
+  isActive?: number;
   createdAt: string;
   updatedAt: string;
 }
@@ -262,6 +264,52 @@ export interface ChatMessage {
 
 export interface CreateChatMessageRequest {
   content: string;
+}
+
+/**
+ * 分享相关类型定义
+ */
+export interface Share {
+  id: string;
+  userId: string;
+  user?: { id: string; username: string };
+  shareType: 'single' | 'monthly';
+  title: string;
+  content: string;
+  isDeleted: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CreateShareRequest {
+  shareType: 'single' | 'monthly';
+  title?: string;
+  content: string | object;
+}
+
+/**
+ * 管理员相关类型定义
+ */
+export interface AdminStats {
+  totalUsers: number;
+  newUsersToday: number;
+  totalTransactions: number;
+  totalShares: number;
+}
+
+export interface TrendItem {
+  date: string;
+  count: number;
+}
+
+export interface AdminUser {
+  id: string;
+  username: string;
+  email: string;
+  role: 'user' | 'admin';
+  isActive: number;
+  transactionCount: number;
+  createdAt: string;
 }
 
 /**

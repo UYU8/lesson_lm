@@ -1,0 +1,168 @@
+/* ===== 广场页面 ===== */
+
+.plaza-page {
+  min-height: 100%;
+  background: #F7F7F7;
+  padding-bottom: 68px;
+}
+
+/* 顶部导航 */
+.plaza-header {
+  background: #FFE566;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.plaza-back-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  color: #1A1A1A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plaza-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+/* 分享列表 */
+.plaza-list {
+  padding: 12px;
+}
+
+.plaza-card {
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.plaza-card:active {
+  transform: scale(0.98);
+}
+
+.plaza-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.plaza-card-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #FFE566;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1A1A1A;
+  flex-shrink: 0;
+}
+
+.plaza-card-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.plaza-card-username {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+.plaza-card-time {
+  font-size: 11px;
+  color: #999;
+}
+
+.plaza-card-type {
+  font-size: 11px;
+  color: #FF9500;
+  background: #FFF8E0;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.plaza-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1A1A1A;
+  margin-bottom: 6px;
+}
+
+.plaza-card-summary {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* 加载更多 */
+.plaza-load-more {
+  width: 100%;
+  padding: 12px;
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.plaza-load-more:disabled {
+  opacity: 0.5;
+}
+
+/* 空状态 */
+.plaza-empty {
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.plaza-empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.plaza-empty-text {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1C1C1E;
+  margin-bottom: 8px;
+}
+
+.plaza-empty-sub {
+  font-size: 13px;
+  color: #AEAEB2;
+}
+
+.plaza-loading {
+  padding: 30px;
+  text-align: center;
+  color: #AAA;
+  font-size: 13px;
+}
+
+/* 深色模式 */
+[data-theme="dark"] .plaza-page { background: #000; }
+[data-theme="dark"] .plaza-card { background: #1C1C1E; }
+[data-theme="dark"] .plaza-card-username,
+[data-theme="dark"] .plaza-card-title { color: #FFF; }
+[data-theme="dark"] .plaza-card-summary { color: #8E8E93; }
+[data-theme="dark"] .plaza-card-time { color: #636366; }

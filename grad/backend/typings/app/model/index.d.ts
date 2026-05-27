@@ -8,6 +8,7 @@ import ExportCategory = require('../../../app/model/category');
 import ExportChatMessage = require('../../../app/model/chat-message');
 import ExportRefreshToken = require('../../../app/model/refresh-token');
 import ExportSearchHistory = require('../../../app/model/search-history');
+import ExportShare = require('../../../app/model/share');
 import ExportTag = require('../../../app/model/tag');
 import ExportTransactionTag = require('../../../app/model/transaction-tag');
 import ExportTransaction = require('../../../app/model/transaction');
@@ -20,6 +21,7 @@ declare module 'egg' {
     ChatMessage: ReturnType<typeof ExportChatMessage>;
     RefreshToken: ReturnType<typeof ExportRefreshToken>;
     SearchHistory: ReturnType<typeof ExportSearchHistory>;
+    Share: ReturnType<typeof ExportShare>;
     Tag: ReturnType<typeof ExportTag>;
     TransactionTag: ReturnType<typeof ExportTransactionTag>;
     Transaction: ReturnType<typeof ExportTransaction>;

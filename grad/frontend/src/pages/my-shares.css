@@ -1,0 +1,131 @@
+/* ===== 我的分享页面 ===== */
+
+.my-shares-page {
+  min-height: 100%;
+  background: #F7F7F7;
+  padding-bottom: 68px;
+}
+
+.my-shares-header {
+  background: #FFE566;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.my-shares-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+.my-shares-list {
+  padding: 12px;
+}
+
+.my-shares-card {
+  background: #FFFFFF;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.my-shares-card-content {
+  flex: 1;
+  padding: 14px;
+  cursor: pointer;
+  min-width: 0;
+}
+
+.my-shares-card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.my-shares-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1A1A1A;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.my-shares-card-type {
+  font-size: 11px;
+  color: #FF9500;
+  background: #FFF8E0;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.my-shares-card-summary {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.my-shares-card-time {
+  font-size: 11px;
+  color: #999;
+}
+
+.my-shares-delete-btn {
+  padding: 14px 16px;
+  background: none;
+  border: none;
+  border-left: 1px solid #F5F5F5;
+  color: #FF3B30;
+  font-size: 13px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.my-shares-delete-btn:active {
+  background: #FFF5F5;
+}
+
+/* 空状态 */
+.my-shares-empty {
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.my-shares-empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.my-shares-empty-text {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1C1C1E;
+  margin-bottom: 8px;
+}
+
+.my-shares-empty-sub {
+  font-size: 13px;
+  color: #AEAEB2;
+}
+
+.my-shares-loading {
+  padding: 30px;
+  text-align: center;
+  color: #AAA;
+  font-size: 13px;
+}
+
+/* 深色模式 */
+[data-theme="dark"] .my-shares-page { background: #000; }
+[data-theme="dark"] .my-shares-card { background: #1C1C1E; }
+[data-theme="dark"] .my-shares-card-title { color: #FFF; }
+[data-theme="dark"] .my-shares-card-summary { color: #8E8E93; }
+[data-theme="dark"] .my-shares-delete-btn { border-color: #2C2C2E; }

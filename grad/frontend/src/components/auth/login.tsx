@@ -26,8 +26,12 @@ export const Login: React.FC = () => {
     e.preventDefault();
     setLocalError(null);
     try {
-      await login(formData.username, formData.password);
-      navigate('/');
+      const res = await login(formData.username, formData.password);
+      if (res.user.role === 'admin') {
+        navigate('/admin/dashboard');
+      } else {
+        navigate('/');
+      }
     } catch (err) {
       setLocalError(err instanceof Error ? err.message : '登录失败');
     }

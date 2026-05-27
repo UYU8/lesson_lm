@@ -1,0 +1,261 @@
+/* ===== 管理员页面公共样式 ===== */
+
+/* 登录页 */
+.admin-login-page {
+  min-height: 100vh;
+  background: #1A1A1A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.admin-login-card {
+  width: 100%;
+  max-width: 360px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.admin-login-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.admin-login-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin: 0 0 24px;
+}
+
+.admin-login-error {
+  background: #FFF5F5;
+  color: #FF3B30;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.admin-login-field {
+  margin-bottom: 12px;
+}
+
+.admin-login-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #E0E0E0;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #1A1A1A;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.admin-login-input:focus {
+  border-color: #1A1A1A;
+}
+
+.admin-login-btn {
+  width: 100%;
+  padding: 14px;
+  background: #1A1A1A;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.admin-login-btn:disabled {
+  opacity: 0.5;
+}
+
+/* ===== 看板页 ===== */
+.admin-dashboard {
+  padding: 16px 12px;
+}
+
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.admin-stat-card {
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.admin-stat-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.admin-stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin-bottom: 4px;
+}
+
+.admin-stat-label {
+  font-size: 12px;
+  color: #999;
+}
+
+.admin-chart-card {
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.admin-chart-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin-bottom: 12px;
+}
+
+/* ===== 分享管理 / 用户管理 ===== */
+.admin-page {
+  padding: 16px 12px;
+}
+
+.admin-page-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin-bottom: 16px;
+}
+
+.admin-table-card {
+  background: #FFFFFF;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.admin-table-row {
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid #F5F5F5;
+  gap: 10px;
+}
+
+.admin-table-row:last-child {
+  border-bottom: none;
+}
+
+.admin-table-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #FFE566;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1A1A1A;
+  flex-shrink: 0;
+}
+
+.admin-table-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-table-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A1A1A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-table-sub {
+  font-size: 12px;
+  color: #999;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-table-meta {
+  font-size: 11px;
+  color: #999;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.admin-table-action {
+  flex-shrink: 0;
+}
+
+.admin-delete-btn {
+  padding: 6px 12px;
+  background: #FFF5F5;
+  border: 1px solid #FFD5D5;
+  border-radius: 8px;
+  color: #FF3B30;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.admin-delete-btn:active {
+  background: #FFE5E5;
+}
+
+.admin-toggle-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  border: 1px solid;
+}
+
+.admin-toggle-btn.active {
+  background: #F0FFF0;
+  border-color: #A8E6CF;
+  color: #34C759;
+}
+
+.admin-toggle-btn.inactive {
+  background: #FFF5F5;
+  border-color: #FFD5D5;
+  color: #FF3B30;
+}
+
+.admin-empty {
+  padding: 40px 24px;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+}
+
+.admin-loading {
+  padding: 30px;
+  text-align: center;
+  color: #AAA;
+  font-size: 13px;
+}
+
+.admin-load-more {
+  width: 100%;
+  padding: 12px;
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 13px;
+  cursor: pointer;
+}

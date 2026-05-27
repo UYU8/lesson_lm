@@ -67,6 +67,11 @@ class AuthController extends Controller {
       return ctx.throw(400, '用户名或密码错误');
     }
 
+    // 检查账号是否被禁用
+    if (user.isActive === 0) {
+      return ctx.throw(403, '账号已被禁用');
+    }
+
     // 生成 tokens
     const accessToken = ctx.service.user.generateAccessToken(user);
     const refreshToken = await ctx.service.user.generateRefreshToken(user.id);

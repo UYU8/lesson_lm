@@ -1,0 +1,174 @@
+/* ===== 分享弹窗 ===== */
+
+.share-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 500;
+  display: flex;
+  align-items: flex-end;
+}
+
+.share-modal-sheet {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border-radius: 18px 18px 0 0;
+  padding: 0 0 32px;
+  animation: sheetUp 0.25s ease;
+}
+
+@keyframes sheetUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.share-modal-handle {
+  width: 36px;
+  height: 4px;
+  background: #E0E0E0;
+  border-radius: 2px;
+  margin: 10px auto 4px;
+}
+
+.share-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px 12px;
+}
+
+.share-modal-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+.share-modal-close {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #F5F5F5;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.share-modal-body {
+  padding: 0 16px;
+}
+
+.share-modal-field {
+  margin-bottom: 16px;
+}
+
+.share-modal-label {
+  display: block;
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 8px;
+}
+
+.share-modal-type-row {
+  display: flex;
+  gap: 10px;
+}
+
+.share-modal-type-btn {
+  flex: 1;
+  padding: 10px;
+  border: 1.5px solid #E0E0E0;
+  border-radius: 10px;
+  background: #FFFFFF;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.share-modal-type-btn.active {
+  border-color: #FF9500;
+  background: #FFF8E0;
+  color: #FF9500;
+  font-weight: 600;
+}
+
+.share-modal-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #E0E0E0;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #1A1A1A;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.share-modal-input:focus {
+  border-color: #FF9500;
+}
+
+.share-modal-preview {
+  background: #F7F7F7;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+.share-modal-preview-label {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 6px;
+}
+
+.share-modal-preview-type {
+  font-size: 14px;
+  color: #1A1A1A;
+  font-weight: 500;
+}
+
+.share-modal-footer {
+  padding: 8px 16px 0;
+}
+
+.share-modal-submit {
+  width: 100%;
+  padding: 14px;
+  background: #FFE566;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1A1A1A;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.share-modal-submit:active {
+  background: #FFD700;
+}
+
+.share-modal-submit:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* 深色模式 */
+[data-theme="dark"] .share-modal-sheet { background: #1C1C1E; }
+[data-theme="dark"] .share-modal-title { color: #FFF; }
+[data-theme="dark"] .share-modal-input {
+  background: #2C2C2E;
+  border-color: #38383A;
+  color: #FFF;
+}
+[data-theme="dark"] .share-modal-preview { background: #2C2C2E; }
+[data-theme="dark"] .share-modal-type-btn {
+  background: #2C2C2E;
+  border-color: #38383A;
+  color: #FFF;
+}

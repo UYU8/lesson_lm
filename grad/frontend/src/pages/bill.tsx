@@ -9,6 +9,7 @@ import { Transaction } from '@types/index';
 import { transactionApi, reportApi } from '@services/accounting';
 import { formatAmount } from '@utils/currency';
 import PullToRefresh from '@components/pull-to-refresh';
+import { ShareModal } from '@components/share/share-modal';
 import './bill.css';
 
 interface MonthRow {
@@ -46,6 +47,8 @@ const BillPage: React.FC = () => {
   const [monthExpense, setMonthExpense] = useState(0);
   const [monthTransactions, setMonthTransactions] = useState<Transaction[]>([]);
   const [monthLoading, setMonthLoading] = useState(false);
+  const [shareModalVisible, setShareModalVisible] = useState(false);
+  const [shareData, setShareData] = useState<{ shareType: 'single' | 'monthly'; content: object } | null>(null);
 
   // ===== 加载年账单 =====
   const loadYearData = useCallback(() => {
@@ -174,7 +177,13 @@ const BillPage: React.FC = () => {
         </div>
 
         <div className="bill-navbar-actions">
-          <button className="bill-navbar-icon-btn">···</button>
+          <button className="bill-navbar-icon-btn" onClick={() => {
+            const content = viewType === 'year'
+              ? { year: selectedYear, income: yearIncome, expense: yearExpense, balance: yearIncome - yearExpense }
+              : { yearMonth: `${selectedYear}-${String(selectedMonth).padStart(2, '0')}`, income: monthIncome, expense: monthExpense, transactionCount: monthTransactions.length };
+            setShareData({ shareType: 'monthly', content });
+            setShareModalVisible(true);
+          }}>📤</button>
         </div>
       </div>
 
@@ -326,6 +335,15 @@ const BillPage: React.FC = () => {
         </div>
       )}
     </div>
+
+    {/* 分享弹窗 */}
+    {shareData && (
+      <ShareModal
+        visible={shareModalVisible}
+        onClose={() => { setShareModalVisible(false); setShareData(null); }}
+        shareData={shareData}
+      />
+    )}
     </PullToRefresh>
   );
 };

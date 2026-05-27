@@ -191,6 +191,12 @@ const DetailsPage: React.FC = () => {
             </div>
             <span className="details-shortcut-label">搜索</span>
           </button>
+          <button className="details-shortcut-item" onClick={() => navigate('/plaza')}>
+            <div className="details-shortcut-icon-wrap">
+              <span className="details-shortcut-icon">🌍</span>
+            </div>
+            <span className="details-shortcut-label">广场</span>
+          </button>
         </div>
       </div>
 

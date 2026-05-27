@@ -13,6 +13,12 @@ module.exports = (options) => {
     try {
       const decoded = ctx.app.jwt.verify(token, options.secret);
       ctx.state.user = decoded;
+
+      // 管理员权限校验
+      if (options.requireAdmin && decoded.role !== 'admin') {
+        return ctx.throw(403, '需要管理员权限');
+      }
+
       await next();
     } catch (error) {
       if (error.name === 'TokenExpiredError') {

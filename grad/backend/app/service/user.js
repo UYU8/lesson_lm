@@ -192,6 +192,7 @@ class UserService extends Service {
       id: user.id,
       username: user.username,
       email: user.email,
+      role: user.role || 'user',
     };
 
     // Access Token 有效期 15 分钟

@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcryptjs');
 
 module.exports = (app) => {
-  const { STRING, DATE, INTEGER } = app.Sequelize;
+  const { STRING, DATE, INTEGER, ENUM } = app.Sequelize;
 
   const User = app.model.define('user', {
     id: {
@@ -30,6 +30,16 @@ module.exports = (app) => {
       type: STRING(255),
       allowNull: false,
       comment: '密码（加密）',
+    },
+    role: {
+      type: ENUM('user', 'admin'),
+      defaultValue: 'user',
+      comment: '用户角色',
+    },
+    isActive: {
+      type: INTEGER(1),
+      defaultValue: 1,
+      comment: '账号状态：1启用 0禁用',
     },
     createdAt: {
       type: DATE,
@@ -89,6 +99,7 @@ module.exports = (app) => {
     app.model.User.hasMany(app.model.ChatMessage, { foreignKey: 'userId', as: 'chatMessages' });
     app.model.User.hasMany(app.model.SearchHistory, { foreignKey: 'userId', as: 'searchHistory' });
     app.model.User.hasMany(app.model.RefreshToken, { foreignKey: 'userId', as: 'refreshTokens' });
+    app.model.User.hasMany(app.model.Share, { foreignKey: 'userId', as: 'shares' });
   };
 
   return User;

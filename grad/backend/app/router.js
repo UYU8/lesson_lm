@@ -69,4 +69,20 @@ module.exports = (app) => {
   router.delete('/api/budgets/:id', authMiddleware, controller.budget.destroy);
   router.get('/api/budgets/:id/status', authMiddleware, controller.budget.getStatus);
   router.get('/api/budgets/status/monthly', authMiddleware, controller.budget.getMonthlyStatus);
+
+  // 分享相关路由（需要认证）
+  router.post('/api/shares', authMiddleware, controller.share.create);
+  router.get('/api/shares/plaza', authMiddleware, controller.share.plaza);
+  router.get('/api/shares/mine', authMiddleware, controller.share.mine);
+  router.get('/api/shares/:id', authMiddleware, controller.share.detail);
+  router.delete('/api/shares/:id', authMiddleware, controller.share.delete);
+
+  // 管理员相关路由（需要认证+管理员权限）
+  const adminMiddleware = app.middleware.auth({ secret: app.config.jwt.secret, requireAdmin: true });
+  router.get('/api/admin/stats', adminMiddleware, controller.admin.stats);
+  router.get('/api/admin/trend', adminMiddleware, controller.admin.trend);
+  router.get('/api/admin/shares', adminMiddleware, controller.admin.shares);
+  router.delete('/api/admin/shares/:id', adminMiddleware, controller.admin.deleteShare);
+  router.get('/api/admin/users', adminMiddleware, controller.admin.users);
+  router.put('/api/admin/users/:id/status', adminMiddleware, controller.admin.updateUserStatus);
 };
